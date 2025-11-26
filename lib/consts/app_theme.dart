@@ -22,6 +22,23 @@ class AppTheme {
         fontWeight: FontWeight.w700,
       ),
 
+      // Titles
+      titleLarge: TextStyle(
+        fontSize: 26,
+        fontFamily: 'Yekan',
+        fontWeight: FontWeight.w700,
+      ),
+      titleMedium: TextStyle(
+        fontSize: 24,
+        fontFamily: 'Yekan',
+        fontWeight: FontWeight.w500,
+      ),
+      titleSmall: TextStyle(
+        fontSize: 22,
+        fontFamily: 'Yekan',
+        fontWeight: FontWeight.w400,
+      ),
+
       // Bodies
       bodyLarge: TextStyle(
         fontSize: 20,
