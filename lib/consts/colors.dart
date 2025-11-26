@@ -6,6 +6,7 @@ class AppSolidColors {
   static const Color secondary = Color.fromARGB(255, 249, 140, 63);
   static const Color accent = Color.fromARGB(255, 99, 47, 255);
   static const Color text = Color(0xff131313);
+  static const Color textLight = Colors.white;
   static const Color titleText = Colors.black;
   static const Color sectionTitle = Colors.blue;
   static const Color scaffoldBG = Colors.white;
@@ -22,6 +23,12 @@ class AppGradientColors {
   static const List<Color> tags = [
     Color.fromARGB(255, 0, 0, 0),
     Color.fromARGB(255, 63, 63, 63)
+  ];
+
+  static const List<Color> thumbnailOverlay = [
+    Color.fromARGB(0, 0, 0, 0),
+    Color.fromARGB(195, 72, 20, 88),
+    Color.fromARGB(220, 28, 20, 81)
   ];
 
 }

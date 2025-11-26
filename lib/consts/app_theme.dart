@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:tecno_blog/consts/colors.dart';
 
 class AppTheme {
 
@@ -54,6 +55,23 @@ class AppTheme {
         fontSize: 16,
         fontFamily: 'Yekan',
         fontWeight: FontWeight.w300,
+      ),
+
+      // Labels
+      labelSmall: TextStyle(
+        fontSize: 14,
+        fontWeight: FontWeight.w500,
+        color: AppSolidColors.textLight
+      ),
+      labelMedium: TextStyle(
+        fontSize: 16,
+        fontWeight: FontWeight.w500,
+        color: AppSolidColors.textLight
+      ),
+      labelLarge: TextStyle(
+        fontSize: 18,
+        fontWeight: FontWeight.w700,
+        color: AppSolidColors.textLight
       ),
     ),
   );
