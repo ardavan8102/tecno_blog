@@ -19,4 +19,9 @@ class AppGradientColors {
     Color.fromARGB(255, 68, 4, 87)
   ];
 
+  static const List<Color> tags = [
+    Color.fromARGB(255, 0, 0, 0),
+    Color.fromARGB(255, 63, 63, 63)
+  ];
+
 }
