@@ -7,5 +7,6 @@ class AppAssets {
   static const String hashtagIcon = 'assets/icons/hashtag.png';
   static const String penIcon = 'assets/icons/pen.png';
   static const String microphoneIcon = 'assets/icons/microphone.png';
+  static const String featherIcon = 'assets/icons/feather.png';
 
 }

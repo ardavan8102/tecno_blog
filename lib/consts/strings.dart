@@ -1,5 +1,6 @@
 class AppStrings {
 
+  static const String brandName = 'تکنـــو';
   static const String hotArticles = 'داغ ترین نوشته ها';
   static const String hotPodcastes = 'داغ ترین پادکست ها';
   static const String relatedPosts = 'نوشته های مرتبط';
