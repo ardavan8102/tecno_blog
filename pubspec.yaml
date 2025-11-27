@@ -29,6 +29,8 @@ flutter:
     - assets/images/logo.png
     - assets/images/banners/programming.png
     - assets/icons/hashtag.png
+    - assets/icons/pen.png
+    - assets/icons/microphone.png
 
   fonts:
     - family: Yekan

@@ -31,4 +31,9 @@ class AppGradientColors {
     Color.fromARGB(220, 28, 20, 81)
   ];
 
+  static const List<Color> postOverlay = [
+    Color.fromARGB(0, 255, 255, 255),
+    Color.fromARGB(255, 0, 0, 0),
+  ];
+
 }
