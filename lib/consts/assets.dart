@@ -2,6 +2,8 @@ class AppAssets {
 
   static const String logo = 'assets/images/logo.png';
   static const String logoWithText = 'assets/images/logo_text.png';
-  static const String homeBannerBig = 'assets/images/banners/programming.png';
-  
+
+  // Icons
+  static const String hashtagIcon = 'assets/icons/hashtag.png';
+
 }
