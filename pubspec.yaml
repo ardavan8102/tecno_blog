@@ -28,6 +28,7 @@ flutter:
     - assets/images/logo_text.png
     - assets/images/logo.png
     - assets/images/banners/programming.png
+    - assets/images/profile_default.png
     - assets/icons/hashtag.png
     - assets/icons/pen.png
     - assets/icons/microphone.png

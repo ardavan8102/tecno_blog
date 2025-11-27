@@ -2,6 +2,8 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:tecno_blog/consts/assets.dart';
 import 'package:tecno_blog/consts/colors.dart';
+import 'package:tecno_blog/ui/home.dart';
+import 'package:tecno_blog/ui/profile_screen.dart';
 
 class TecnoBottomNavigationBar extends StatelessWidget {
   final Size size;
@@ -37,7 +39,11 @@ class TecnoBottomNavigationBar extends StatelessWidget {
             mainAxisAlignment: .spaceAround,
             children: [
               IconButton(
-                onPressed: () {},
+                onPressed: () {
+                  Navigator.of(context).pushReplacement(
+                    MaterialPageRoute(builder: (context) => HomeScreen())
+                  );
+                },
                 icon: Icon(
                   CupertinoIcons.house_fill,
                   color: Colors.white,
@@ -46,7 +52,9 @@ class TecnoBottomNavigationBar extends StatelessWidget {
               ),
         
               IconButton(
-                onPressed: () {},
+                onPressed: () {
+                  
+                },
                 icon: ImageIcon(
                   AssetImage(AppAssets.featherIcon),
                   color: Colors.white,
@@ -55,7 +63,11 @@ class TecnoBottomNavigationBar extends StatelessWidget {
               ),
         
               IconButton(
-                onPressed: () {},
+                onPressed: () {
+                  Navigator.of(context).pushReplacement(
+                    MaterialPageRoute(builder: (context) => ProfileScreen())
+                  );
+                },
                 icon: Icon(
                   CupertinoIcons.person_fill,
                   color: Colors.white,
