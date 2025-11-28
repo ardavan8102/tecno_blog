@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:tecno_blog/components/elevated_button.dart';
+import 'package:tecno_blog/components/buttons/elevated_button.dart';
 
 class InputBottomSheet extends StatelessWidget {
   final TextField field;

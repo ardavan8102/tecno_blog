@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:tecno_blog/components/light_divider.dart';
-import 'package:tecno_blog/components/menu_item_inkwell.dart';
+import 'package:tecno_blog/components/buttons/menu_item_inkwell.dart';
 import 'package:tecno_blog/consts/assets.dart';
 import 'package:tecno_blog/consts/colors.dart';
 import 'package:tecno_blog/consts/strings.dart';

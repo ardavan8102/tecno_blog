@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
-import 'package:tecno_blog/components/elevated_button.dart';
+import 'package:tecno_blog/components/buttons/elevated_button.dart';
 import 'package:tecno_blog/components/textfield_bottom_sheet.dart';
 import 'package:tecno_blog/consts/assets.dart';
 import 'package:flutter_svg/flutter_svg.dart';
