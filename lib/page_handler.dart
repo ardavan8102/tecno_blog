@@ -37,13 +37,11 @@ class _PageHandlerState extends State<PageHandler> {
         child: Stack(
           children: [
             // Screen
-            Center(
-              child: Positioned.fill(
-                child: IndexedStack(
-                  index: selectedPageIndex,
-                  children: tecnoMainPages,
-                ),
-              )
+            Positioned.fill(
+              child: IndexedStack(
+                index: selectedPageIndex,
+                children: tecnoMainPages,
+              ),
             ),
             
             // Bottom Navigaton Bar

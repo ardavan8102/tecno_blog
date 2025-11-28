@@ -15,7 +15,7 @@ class HomeScreen extends StatelessWidget {
     // Variables
     var size = MediaQuery.of(context).size;
     var textTheme = Theme.of(context).textTheme;
-    var mainBodyMargin = size.width / 20;
+    var mainBodyMargin = size.width / 12;
     var postThumbnailHeight = size.height / 6;
     var postThumbnailWidth = size.width / 2.2;
 
@@ -43,139 +43,142 @@ class HomeScreen extends StatelessWidget {
     double postThumbnailWidth,
   ) {
     return SingleChildScrollView(
-      child: Padding(
-        padding: const EdgeInsets.all(16.0),
-        child: Column(
-          crossAxisAlignment: .center,
-          children: [
-            // Banner
-            bigBannerSection(size, textTheme),
-
-            const SizedBox(height: 16),
-
-            // Tags
-            SizedBox(
-              height: 60,
-              child: ListView.builder(
-                itemCount: tagList.length,
-                scrollDirection: Axis.horizontal,
-                itemBuilder: (context, index) {
-                  final item = tagList[index];
-                  return Padding(
-                    padding:
-                        index ==
-                            0 // if it was first item :
+      child: Column(
+        crossAxisAlignment: .center,
+        children: [
+          // Banner
+          bigBannerSection(size, textTheme),
+      
+          const SizedBox(height: 24),
+      
+          // Tags
+          SizedBox(
+            height: 60,
+            child: ListView.builder(
+              itemCount: tagList.length,
+              scrollDirection: Axis.horizontal,
+              itemBuilder: (context, index) {
+                final item = tagList[index];
+                return Padding(
+                  padding:
+                      index ==
+                          0 // if it was first item :
+                      ? EdgeInsets.fromLTRB(8, 8, mainBodyMargin, 8)
+                      : index ==
+                            (tagList.length - 1) // If it was last item :
+                      ? EdgeInsets.fromLTRB(mainBodyMargin, 8, 8, 8)
+                      // Otherwise :
+                      : EdgeInsets.all(8),
+                  child: hashtagMainContainer(item, textTheme),
+                );
+              },
+            ),
+          ),
+      
+          // Hot Articles
+          Padding(
+            padding: EdgeInsets.only(
+              right: mainBodyMargin,
+              top: 32,
+              bottom: 8,
+            ),
+            child: Column(
+              spacing: 16,
+              children: [
+                // Section Title
+                CustomSectionTitle(
+                  text: AppStrings.hotArticles,
+                  assetName: AppAssets.penIcon,
+                ),
+      
+                // Posts List View
+                SizedBox(
+                  height: size.height / 3.5,
+                  width: double.infinity,
+                  child: ListView.builder(
+                    itemCount: blogList.getRange(0, 5).length,
+                    scrollDirection: .horizontal,
+                    itemBuilder: (context, index) {
+                      final item = blogList[index];
+      
+                      // Hot Blog Item
+                      return Padding(
+                        padding: index == (blogList.getRange(0, 5).length - 1)
+                            ? EdgeInsetsGeometry.fromLTRB(
+                                mainBodyMargin,
+                                8,
+                                8,
+                                8,
+                              )
+                            : const EdgeInsets.all(10),
+                        child: hotBlogPostsItem(
+                          size,
+                          item,
+                          textTheme,
+                          postThumbnailHeight,
+                          postThumbnailWidth,
+                        ),
+                      );
+                    },
+                  ),
+                ),
+              ],
+            ),
+          ),
+      
+          // Hot Podcasts
+          Column(
+            children: [
+              // Section Title
+              Padding(
+                padding: EdgeInsets.only(
+                  right: mainBodyMargin,
+                  top: 8,
+                  bottom: 8,
+                ),
+                child: CustomSectionTitle(
+                  text: AppStrings.hotPodcastes,
+                  assetName: AppAssets.microphoneIcon,
+                ),
+              ),
+                
+              // Podcast List View
+              SizedBox(
+                height: size.height / 3.5,
+                width: double.infinity,
+                child: ListView.builder(
+                  itemCount: podCastList.length,
+                  scrollDirection: .horizontal,
+                  itemBuilder: (context, index) {
+                    final item = podCastList[index];
+                    return Padding(
+                      padding:
+                        index == 0 // if it was first item :
                         ? EdgeInsets.fromLTRB(8, 8, mainBodyMargin, 8)
-                        : index ==
-                              (tagList.length - 1) // If it was last item :
+                        : index == (podCastList.length - 1) // If it was last item :
                         ? EdgeInsets.fromLTRB(mainBodyMargin, 8, 8, 8)
                         // Otherwise :
                         : EdgeInsets.all(8),
-                    child: hashtagMainContainer(item, textTheme),
-                  );
-                },
+                      child: podCastItem(
+                        postThumbnailHeight,
+                        postThumbnailWidth,
+                        item,
+                        textTheme,
+                      ),
+                    );
+                  },
+                ),
               ),
-            ),
-
-            // Hot Articles
-            Padding(
-              padding: EdgeInsets.only(
-                right: mainBodyMargin,
-                top: 16,
-                bottom: 8,
+            
+              SizedBox(
+                height: 32,
               ),
-              child: Column(
-                spacing: 16,
-                children: [
-                  // Section Title
-                  CustomSectionTitle(
-                    text: AppStrings.hotArticles,
-                    assetName: AppAssets.penIcon,
-                  ),
-
-                  // Posts List View
-                  SizedBox(
-                    height: size.height / 3.5,
-                    width: double.infinity,
-                    child: ListView.builder(
-                      itemCount: blogList.getRange(0, 5).length,
-                      scrollDirection: .horizontal,
-                      itemBuilder: (context, index) {
-                        final item = blogList[index];
-
-                        // Hot Blog Item
-                        return Padding(
-                          padding: index == (blogList.getRange(0, 5).length - 1)
-                              ? EdgeInsetsGeometry.fromLTRB(
-                                  mainBodyMargin,
-                                  8,
-                                  8,
-                                  8,
-                                )
-                              : const EdgeInsets.all(10),
-                          child: hotBlogPostsItem(
-                            size,
-                            item,
-                            textTheme,
-                            postThumbnailHeight,
-                            postThumbnailWidth,
-                          ),
-                        );
-                      },
-                    ),
-                  ),
-                ],
-              ),
-            ),
-
-            const SizedBox(height: 16),
-
-            // Hot Podcasts
-            Padding(
-              padding: EdgeInsets.fromLTRB(0, 0, mainBodyMargin, 8),
-              child: Column(
-                children: [
-                  // Section Title
-                  CustomSectionTitle(
-                    text: AppStrings.hotPodcastes,
-                    assetName: AppAssets.microphoneIcon,
-                  ),
-
-                  // Podcast List View
-                  SizedBox(
-                    height: size.height / 3.5,
-                    width: double.infinity,
-                    child: ListView.builder(
-                      itemCount: podCastList.length,
-                      scrollDirection: .horizontal,
-                      itemBuilder: (context, index) {
-                        final item = podCastList[index];
-                        return Padding(
-                          padding: index == (blogList.length - 1)
-                              ? EdgeInsetsGeometry.fromLTRB(
-                                  mainBodyMargin,
-                                  8,
-                                  8,
-                                  8,
-                                )
-                              : const EdgeInsets.all(10),
-                          child: podCastItem(
-                            postThumbnailHeight,
-                            postThumbnailWidth,
-                            item,
-                            textTheme,
-                          ),
-                        );
-                      },
-                    ),
-                  ),
-                ],
-              ),
-            ),
-
-            //
-          ],
-        ),
+            
+            ],
+          ),
+      
+          //
+        ],
       ),
     );
   }
@@ -254,7 +257,7 @@ class HomeScreen extends StatelessWidget {
               color: Colors.white.withValues(alpha: 0.7),
               size: 16,
             ),
-            Text('تعداد پخش : ${item.listens}', style: textTheme.labelSmall),
+            Text('پخش : ${item.listens}', style: textTheme.labelSmall),
           ],
         ),
         Row(
@@ -265,7 +268,7 @@ class HomeScreen extends StatelessWidget {
               color: Colors.white.withValues(alpha: 0.7),
               size: 16,
             ),
-            Text('${item.podcaster}', style: textTheme.labelLarge),
+            Text('${item.podcaster}', style: textTheme.labelMedium),
           ],
         ),
       ],
@@ -304,8 +307,8 @@ class HomeScreen extends StatelessWidget {
         // Banner Data
         Positioned(
           bottom: 20,
-          left: 40,
-          right: 40,
+          left: size.width / 8,
+          right: size.width / 8,
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             crossAxisAlignment: CrossAxisAlignment.start,
@@ -383,12 +386,24 @@ class HomeScreen extends StatelessWidget {
                 left: 0,
                 child: Row(
                   mainAxisAlignment: .spaceAround,
+                  crossAxisAlignment: .center,
                   children: [
-                    Text(item.writer!, style: textTheme.labelSmall),
+                    Text(
+                      item.writer!, 
+                      style: textTheme.labelSmall
+                    ),
+
                     Row(
                       spacing: 6,
                       children: [
-                        Text(item.views!, style: textTheme.labelSmall),
+                        Text(
+                          item.views!,
+                          style: TextStyle(
+                            fontSize: 10,
+                            color: Colors.white,
+                            fontWeight: FontWeight.w500
+                          ),
+                        ),
                         Icon(
                           CupertinoIcons.eye_fill,
                           size: 16,

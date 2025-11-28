@@ -20,44 +20,37 @@ class _ProfileScreenState extends State<ProfileScreen> {
     var size = MediaQuery.of(context).size;
     var textTheme = Theme.of(context).textTheme;
 
-    return Stack(
+    return Column(
+      mainAxisAlignment: .center,
+      crossAxisAlignment: .center,
       children: [
-        // Profile Screen
-        Center(
-          child: Column(
-            mainAxisAlignment: .center,
-            crossAxisAlignment: .center,
-            children: [
-              
-              SizedBox(height: 40),
-
-              // profile image
-              Image(
-                image: AssetImage(AppAssets.defaultProfilePicture),
-                width: 100,
-                height: 100,
-              ),
-
-              const SizedBox(height: 10),
-              
-              // Edit picture
-              editProfilePictureRow(),
-
-              const SizedBox(height: 30),
-
-              // Account Details
-              accountNameAndEmail(textTheme),
-
-              const SizedBox(height: 30),
-
-              // Menu Items
-              profileMenuItems(),
-
-              // Distance from bottom
-              SizedBox(height: size.height / 6),
-            ],
-          ),
+        
+        SizedBox(height: 40),
+    
+        // profile image
+        Image(
+          image: AssetImage(AppAssets.defaultProfilePicture),
+          width: 100,
+          height: 100,
         ),
+    
+        const SizedBox(height: 10),
+        
+        // Edit picture
+        editProfilePictureRow(),
+    
+        const SizedBox(height: 30),
+    
+        // Account Details
+        accountNameAndEmail(textTheme),
+    
+        const SizedBox(height: 30),
+    
+        // Menu Items
+        profileMenuItems(),
+    
+        // Distance from bottom
+        SizedBox(height: size.height / 6),
       ],
     );
   }
