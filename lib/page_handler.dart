@@ -3,6 +3,7 @@ import 'package:tecno_blog/components/appbar.dart';
 import 'package:tecno_blog/components/bottom_navbar.dart';
 import 'package:tecno_blog/ui/main/home.dart';
 import 'package:tecno_blog/ui/main/profile_screen.dart';
+import 'package:tecno_blog/ui/registration/register_intro.dart';
 
 class PageHandler extends StatefulWidget {
   const PageHandler({super.key});
@@ -25,7 +26,7 @@ class _PageHandlerState extends State<PageHandler> {
 
       HomeScreen(),
 
-      const Center(child: Text('Write New Article')),
+      RegisterIntroPage(),
 
       ProfileScreen(),
 

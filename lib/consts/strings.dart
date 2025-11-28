@@ -20,5 +20,6 @@ class AppStrings {
   // Login & Registration
   static const String welcomeText = 'به $brandName خوش آمدید ';
   static const String welcomeSubText = 'برای ارسال مقاله و پادکست میبایست اول در برنامه ثبت نام کنید';
+  static const String enterYourEmail = 'لطفا ایمیل خود را وارد کنید';
 
 }

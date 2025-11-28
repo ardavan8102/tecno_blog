@@ -5,6 +5,35 @@ class AppTheme {
 
   static ThemeData mainTheme = ThemeData(
     fontFamily: 'Yekan',
+    elevatedButtonTheme: ElevatedButtonThemeData(
+      style: ButtonStyle(
+        padding: WidgetStateProperty.all(EdgeInsets.fromLTRB(40, 14, 40, 14)),
+        elevation: WidgetStateProperty.all(0),
+        backgroundColor: WidgetStateProperty.resolveWith(
+          (states) {
+            if (states.contains(WidgetState.pressed)) {
+              return AppSolidColors.accent;
+            }
+
+            return AppSolidColors.accent.withValues(alpha: 0.7);
+          },
+        ),
+        shape: WidgetStateProperty.all(
+          RoundedRectangleBorder(
+            borderRadius: BorderRadiusGeometry.circular(6),
+          ),
+        ),
+        textStyle: WidgetStateProperty.resolveWith(
+          (states) {
+            if (states.contains(WidgetState.pressed)) {
+              return mainTheme.textTheme.labelLarge;
+            }
+
+            return mainTheme.textTheme.labelSmall;
+          },
+        )
+      ),
+    ),
     textTheme: TextTheme(
       // Headlines
       headlineLarge: TextStyle(
@@ -73,6 +102,16 @@ class AppTheme {
         fontWeight: FontWeight.w700,
         color: AppSolidColors.textLight
       ),
+    ),
+    inputDecorationTheme: InputDecorationTheme(
+      border: OutlineInputBorder(
+        borderRadius: BorderRadius.circular(10),
+        borderSide: BorderSide(
+          width: 1,
+        ),
+      ),
+      filled: true,
+      fillColor: Colors.grey.shade200,
     ),
   );
 
