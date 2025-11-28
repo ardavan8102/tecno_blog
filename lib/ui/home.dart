@@ -1,7 +1,5 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:tecno_blog/components/appbar.dart';
-import 'package:tecno_blog/components/bottom_navbar.dart';
 import 'package:tecno_blog/components/section_title.dart';
 import 'package:tecno_blog/consts/assets.dart';
 import 'package:tecno_blog/consts/colors.dart';
@@ -22,29 +20,17 @@ class HomeScreen extends StatelessWidget {
     var postThumbnailWidth = size.width / 2.2;
 
     // Main Widget
-    return Scaffold(
-      backgroundColor: AppSolidColors.scaffoldBG,
-      appBar: CustomAppBar(),
-      body: Stack(
-        children: [
-          // Content
-          homeScreen(
-            size,
-            textTheme,
-            mainBodyMargin,
-            postThumbnailHeight,
-            postThumbnailWidth,
-          ),
-
-          // Bottom Navigaton Bar
-          Positioned(
-            bottom: 0,
-            left: 0,
-            right: 0,
-            child: TecnoBottomNavigationBar(size: size),
-          ),
-        ],
-      ),
+    return Stack(
+      children: [
+        // Content
+        homeScreen(
+          size,
+          textTheme,
+          mainBodyMargin,
+          postThumbnailHeight,
+          postThumbnailWidth,
+        ),
+      ],
     );
   }
 

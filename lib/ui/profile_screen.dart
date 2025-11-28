@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:tecno_blog/components/appbar.dart';
-import 'package:tecno_blog/components/bottom_navbar.dart';
 import 'package:tecno_blog/components/light_divider.dart';
 import 'package:tecno_blog/components/menu_item_inkwell.dart';
 import 'package:tecno_blog/consts/assets.dart';
@@ -22,57 +20,45 @@ class _ProfileScreenState extends State<ProfileScreen> {
     var size = MediaQuery.of(context).size;
     var textTheme = Theme.of(context).textTheme;
 
-    return Scaffold(
-      backgroundColor: AppSolidColors.scaffoldBG,
-      appBar: CustomAppBar(),
-      body: Stack(
-        children: [
-          // Profile Screen
-          Center(
-            child: Column(
-              mainAxisAlignment: .center,
-              crossAxisAlignment: .center,
-              children: [
-                
-                SizedBox(height: 40),
+    return Stack(
+      children: [
+        // Profile Screen
+        Center(
+          child: Column(
+            mainAxisAlignment: .center,
+            crossAxisAlignment: .center,
+            children: [
+              
+              SizedBox(height: 40),
 
-                // profile image
-                Image(
-                  image: AssetImage(AppAssets.defaultProfilePicture),
-                  width: 100,
-                  height: 100,
-                ),
+              // profile image
+              Image(
+                image: AssetImage(AppAssets.defaultProfilePicture),
+                width: 100,
+                height: 100,
+              ),
 
-                const SizedBox(height: 10),
-                
-                // Edit picture
-                editProfilePictureRow(),
+              const SizedBox(height: 10),
+              
+              // Edit picture
+              editProfilePictureRow(),
 
-                const SizedBox(height: 30),
+              const SizedBox(height: 30),
 
-                // Account Details
-                accountNameAndEmail(textTheme),
+              // Account Details
+              accountNameAndEmail(textTheme),
 
-                const SizedBox(height: 30),
+              const SizedBox(height: 30),
 
-                // Menu Items
-                profileMenuItems(),
+              // Menu Items
+              profileMenuItems(),
 
-                // Distance from bottom
-                SizedBox(height: size.height / 6),
-              ],
-            ),
+              // Distance from bottom
+              SizedBox(height: size.height / 6),
+            ],
           ),
-
-          // Bottom Navigation Bar
-          Positioned(
-            bottom: 0,
-            left: 0,
-            right: 0,
-            child: TecnoBottomNavigationBar(size: size),
-          ),
-        ],
-      ),
+        ),
+      ],
     );
   }
 

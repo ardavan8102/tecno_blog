@@ -2,16 +2,21 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:tecno_blog/consts/assets.dart';
 import 'package:tecno_blog/consts/colors.dart';
-import 'package:tecno_blog/ui/home.dart';
-import 'package:tecno_blog/ui/profile_screen.dart';
 
 class TecnoBottomNavigationBar extends StatelessWidget {
+
   final Size size;
-  const TecnoBottomNavigationBar({super.key, required this.size});
+  final Function(int) changeScreen;
+
+  const TecnoBottomNavigationBar({
+    super.key,
+    required this.size,
+    required this.changeScreen,
+  });
+
 
   @override
   Widget build(BuildContext context) {
-    
     return Container(
       height: size.height / 10,
       decoration: const BoxDecoration(
@@ -31,7 +36,7 @@ class TecnoBottomNavigationBar extends StatelessWidget {
               begin: .centerLeft,
               end: .centerRight,
             ),
-            borderRadius: BorderRadius.circular(18)
+            borderRadius: BorderRadius.circular(18),
           ),
           // Menu Items
           child: Row(
@@ -39,35 +44,25 @@ class TecnoBottomNavigationBar extends StatelessWidget {
             mainAxisAlignment: .spaceAround,
             children: [
               IconButton(
-                onPressed: () {
-                  Navigator.of(context).pushReplacement(
-                    MaterialPageRoute(builder: (context) => HomeScreen())
-                  );
-                },
+                onPressed: () => changeScreen(0),
                 icon: Icon(
                   CupertinoIcons.house_fill,
                   color: Colors.white,
                   size: 32,
                 ),
               ),
-        
+
               IconButton(
-                onPressed: () {
-                  
-                },
+                onPressed: () => changeScreen(1),
                 icon: ImageIcon(
                   AssetImage(AppAssets.featherIcon),
                   color: Colors.white,
                   size: 32,
                 ),
               ),
-        
+
               IconButton(
-                onPressed: () {
-                  Navigator.of(context).pushReplacement(
-                    MaterialPageRoute(builder: (context) => ProfileScreen())
-                  );
-                },
+                onPressed: () => changeScreen(2),
                 icon: Icon(
                   CupertinoIcons.person_fill,
                   color: Colors.white,
