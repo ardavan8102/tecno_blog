@@ -10,4 +10,6 @@ class AppAssets {
   static const String microphoneIcon = 'assets/icons/microphone.png';
   static const String featherIcon = 'assets/icons/feather.png';
 
+  // Svg's
+  static const String tecnoBotSmile = 'assets/svg/tecnobot_smile.svg';
 }

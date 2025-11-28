@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:tecno_blog/components/appbar.dart';
 import 'package:tecno_blog/components/bottom_navbar.dart';
-import 'package:tecno_blog/ui/home.dart';
-import 'package:tecno_blog/ui/profile_screen.dart';
+import 'package:tecno_blog/ui/main/home.dart';
+import 'package:tecno_blog/ui/main/profile_screen.dart';
 
 class PageHandler extends StatefulWidget {
   const PageHandler({super.key});
@@ -28,7 +28,7 @@ class _PageHandlerState extends State<PageHandler> {
       const Center(child: Text('Write New Article')),
 
       ProfileScreen(),
-      
+
     ];
 
     return Scaffold(
@@ -39,7 +39,10 @@ class _PageHandlerState extends State<PageHandler> {
             // Screen
             Center(
               child: Positioned.fill(
-                child: tecnoMainPages[selectedPageIndex],
+                child: IndexedStack(
+                  index: selectedPageIndex,
+                  children: tecnoMainPages,
+                ),
               )
             ),
             

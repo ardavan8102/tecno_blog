@@ -17,4 +17,8 @@ class AppStrings {
   static const String myFavoritePodcasts = 'پادکست های موردعلاقه من';
   static const String logOutText = 'خروج از حساب';
 
+  // Login & Registration
+  static const String welcomeText = 'به $brandName خوش آمدید ';
+  static const String welcomeSubText = 'برای ارسال مقاله و پادکست میبایست اول در برنامه ثبت نام کنید';
+
 }
