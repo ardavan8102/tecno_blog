@@ -27,4 +27,11 @@ class AppStrings {
   static const String firstNameAndLastName = 'نام و نام خانوادگی';
   static const String chooseYourFavoriteCategories = 'دسته بندی هایی که دوست دارید رو انتخاب کنید';
 
+
+  // Side Drawer
+  static const String profilePage = 'پروفایل کاربری';
+  static const String aboutUsPage = 'درباره $brandName';
+  static const String shareTecnoApp = 'اشتراک گذاری $brandName';
+  static const String githubTecnoApp = '$brandName در گیتهاب';
+
 }

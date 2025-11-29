@@ -26,7 +26,11 @@ class AppTheme {
         textStyle: WidgetStateProperty.resolveWith(
           (states) {
             if (states.contains(WidgetState.pressed)) {
-              return mainTheme.textTheme.labelLarge;
+              return TextStyle(
+                fontSize: 18,
+                fontWeight: FontWeight.w700,
+                color: AppSolidColors.textLight
+              );
             }
 
             return mainTheme.textTheme.labelSmall;
@@ -112,6 +116,12 @@ class AppTheme {
       ),
       filled: true,
       fillColor: Colors.grey.shade200,
+    ),
+
+    // Drawer
+    drawerTheme: const DrawerThemeData(
+      elevation: 0,
+      surfaceTintColor: Colors.transparent
     ),
   );
 

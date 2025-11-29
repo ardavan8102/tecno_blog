@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:tecno_blog/components/section/appbar.dart';
 import 'package:tecno_blog/components/section/bottom_navbar.dart';
+import 'package:tecno_blog/components/section/menu_drawer.dart';
 import 'package:tecno_blog/ui/main/home.dart';
 import 'package:tecno_blog/ui/main/profile_screen.dart';
 import 'package:tecno_blog/ui/registration/register_intro.dart';
@@ -11,6 +12,8 @@ class PageHandler extends StatefulWidget {
   @override
   State<PageHandler> createState() => _PageHandlerState();
 }
+
+final GlobalKey<ScaffoldState> _key = GlobalKey(); // Global Key State for Drawer menu
 
 class _PageHandlerState extends State<PageHandler> {
 
@@ -33,7 +36,9 @@ class _PageHandlerState extends State<PageHandler> {
     ];
 
     return Scaffold(
-      appBar: CustomAppBar(),
+      key: _key,
+      appBar: CustomAppBar(stateKey: _key),
+      drawer: TecnoSideMenuDrawer(),
       body: SafeArea(
         child: Stack(
           children: [

@@ -4,7 +4,8 @@ import 'package:tecno_blog/consts/assets.dart';
 import 'package:tecno_blog/consts/colors.dart';
 
 class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
-  const CustomAppBar({super.key});
+  final GlobalKey<ScaffoldState> stateKey;
+  const CustomAppBar({super.key, required this.stateKey});
 
   @override
   Widget build(BuildContext context) {
@@ -12,6 +13,7 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
     var size = MediaQuery.of(context).size;
     
     return AppBar(
+      automaticallyImplyLeading: false,
       backgroundColor: AppSolidColors.scaffoldBG,
       title: Row(
         mainAxisAlignment: .spaceBetween,
@@ -19,7 +21,9 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
         children: [
           IconButton(
             icon: Icon(CupertinoIcons.bars),
-            onPressed: () {},
+            onPressed: () {
+              stateKey.currentState!.openDrawer();
+            },
           ),
           Row(
             children: [

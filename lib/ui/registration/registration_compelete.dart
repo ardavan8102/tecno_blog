@@ -184,11 +184,20 @@ class _RegistrationCompeletePageState extends State<RegistrationCompeletePage> {
         final item = tagList[index];
         return InkWell(
           onTap: () {
-            setState(() {
-              subCategoriesRegisterPage.add(
-                HashTag(title: item.title)
-              );
-            });
+            // Check if tag already exists in the list:
+            final alreadyExits = subCategoriesRegisterPage.any(
+              (tag) => tag.title == item.title
+            );
+
+            if (!alreadyExits) {
+              setState(() {
+                subCategoriesRegisterPage.add(
+                  HashTag(title: item.title)
+                );
+              });
+            } else {
+              AppSnackBars.failed('این دسته قبلاً انتخاب شده');
+            }
           },
           child: CategoryTagListItem(
             hashTagItem: item,

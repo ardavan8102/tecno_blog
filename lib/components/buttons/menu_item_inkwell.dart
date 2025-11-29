@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:tecno_blog/consts/colors.dart';
 
 class CustomMenuItemWithInkWell extends StatelessWidget {
   final Function() func;
@@ -26,7 +25,6 @@ class CustomMenuItemWithInkWell extends StatelessWidget {
             style: TextStyle(
               fontSize: 15,
               fontWeight: FontWeight.w500,
-              color: AppSolidColors.text,
             ),
           ),
         ),
