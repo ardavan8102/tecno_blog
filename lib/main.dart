@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:tecno_blog/consts/app_theme.dart';
-import 'package:tecno_blog/ui/splash.dart';
+import 'package:tecno_blog/view/splash.dart';
 
 void main() {
 

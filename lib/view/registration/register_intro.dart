@@ -6,7 +6,7 @@ import 'package:tecno_blog/components/textfield_bottom_sheet.dart';
 import 'package:tecno_blog/consts/assets.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:tecno_blog/consts/strings.dart';
-import 'package:tecno_blog/ui/registration/registration_compelete.dart';
+import 'package:tecno_blog/view/registration/registration_compelete.dart';
 import 'package:validators/validators.dart';
 
 class RegisterIntroPage extends StatefulWidget {
