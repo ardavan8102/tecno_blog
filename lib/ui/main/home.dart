@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:tecno_blog/components/view_builder_items/category_item.dart';
 import 'package:tecno_blog/components/section_title.dart';
 import 'package:tecno_blog/consts/assets.dart';
 import 'package:tecno_blog/consts/colors.dart';
@@ -69,7 +70,10 @@ class HomeScreen extends StatelessWidget {
                       ? EdgeInsets.fromLTRB(mainBodyMargin, 8, 8, 8)
                       // Otherwise :
                       : EdgeInsets.all(8),
-                  child: hashtagMainContainer(item, textTheme),
+                  child: CategoryTagListItem(
+                    hashTagItem: item,
+                    index: index
+                  ),
                 );
               },
             ),
@@ -429,36 +433,6 @@ class HomeScreen extends StatelessWidget {
           ),
         ),
       ],
-    );
-  }
-
-  // Hashtags main box item
-  Container hashtagMainContainer(HashTag item, TextTheme textTheme) {
-    return Container(
-      height: 60,
-      decoration: BoxDecoration(
-        color: Colors.black,
-        borderRadius: BorderRadius.all(Radius.circular(15)),
-        gradient: LinearGradient(
-          colors: AppGradientColors.tags,
-          begin: AlignmentGeometry.centerRight,
-          end: AlignmentGeometry.centerLeft,
-        ),
-      ),
-      child: Padding(
-        padding: const EdgeInsets.fromLTRB(16, 8, 16, 8),
-        child: Row(
-          spacing: 8,
-          children: [
-            ImageIcon(
-              AssetImage(AppAssets.hashtagIcon),
-              color: Colors.white,
-              size: 16,
-            ),
-            Text(item.title!, style: textTheme.labelSmall),
-          ],
-        ),
-      ),
     );
   }
 }

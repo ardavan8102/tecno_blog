@@ -12,4 +12,5 @@ class AppAssets {
 
   // Svg's
   static const String tecnoBotSmile = 'assets/svg/tecnobot_smile.svg';
+  static const String arrowDown = 'assets/svg/arrow.svg';
 }

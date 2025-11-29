@@ -10,8 +10,8 @@ Map homePageBannerMap = {
 
 List<HashTag> tagList = [
   HashTag(title: 'جاوا'),
-  HashTag(title: 'برنامه نویسی دارت'),
-  HashTag(title: 'طراحی سایت'),
+  HashTag(title: 'دارت'),
+  HashTag(title: 'سایت'),
   HashTag(title: 'پادکست ها'),
   HashTag(title: 'بازی سازی'),
   HashTag(title: 'پایتون'),
@@ -317,3 +317,5 @@ List<PodCastModel> podCastList = [
     listens: '5369',
   ),
 ];
+
+List<HashTag> subCategoriesRegisterPage = [];

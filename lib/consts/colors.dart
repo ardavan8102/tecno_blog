@@ -10,6 +10,7 @@ class AppSolidColors {
   static const Color titleText = Colors.black;
   static const Color sectionTitle = Colors.blue;
   static const Color scaffoldBG = Colors.white;
+  static const Color cardLightGrey = Color.fromARGB(255, 238, 238, 238);
 
 }
 

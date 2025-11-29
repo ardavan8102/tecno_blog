@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:tecno_blog/components/buttons/elevated_button.dart';
+import 'package:tecno_blog/components/snackbars.dart';
 import 'package:tecno_blog/components/textfield_bottom_sheet.dart';
 import 'package:tecno_blog/consts/assets.dart';
 import 'package:flutter_svg/flutter_svg.dart';
@@ -79,23 +80,12 @@ class _RegisterIntroPageState extends State<RegisterIntroPage> {
           buttonFunction: () {
             if (isEmailConfirmed) {
               Navigator.of(context).pop(); // close prevoius bottom sheet
-              Fluttertoast.showToast(
-                msg: 'ایمیل شما تایید شد',
-                gravity: .TOP,
-                backgroundColor: Colors.green,
-                textColor: Colors.white,
-              );
+              AppSnackBars.success('ایمیل شما تایید شد');
               Navigator.of(context).pushReplacement(
                 MaterialPageRoute(builder: (context) => RegistrationCompeletePage())
               );
             } else {
-              Fluttertoast.showToast(
-                toastLength: .LENGTH_LONG,
-                msg: 'کد تایید درست نیست',
-                gravity: .TOP,
-                backgroundColor: Colors.red,
-                textColor: Colors.white,
-              );
+              AppSnackBars.failed('کد تایید درست نیست');
             }
           },
           height: size.height / 2.5,
