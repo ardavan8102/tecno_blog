@@ -1,6 +1,8 @@
 class AppStrings {
 
+  // General
   static const String brandName = 'تکنـــو بلاگـــ';
+  static const String noImageFound = 'بدون تصویر';
 
   // URLs
   static const String gitHubUrlLink = 'https://github.com/ardavan8102/tecno_blog';

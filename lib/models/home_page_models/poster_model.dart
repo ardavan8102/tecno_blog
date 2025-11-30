@@ -1,3 +1,5 @@
+import 'package:tecno_blog/consts/api_url.dart';
+
 class PosterModel {
 
   String? id;
@@ -13,7 +15,7 @@ class PosterModel {
   PosterModel.fromJson(Map<String, dynamic> element) {
     id = element['id'];
     title = element['title'];
-    image = element['image'];
+    image = ApiUrl.baseAddress + element['image'];
   }
 
 }

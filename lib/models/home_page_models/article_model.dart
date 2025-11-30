@@ -1,3 +1,5 @@
+import 'package:tecno_blog/consts/api_url.dart';
+
 class ArticleModel {
 
   String? id;
@@ -26,7 +28,7 @@ class ArticleModel {
   ArticleModel.fromJson(Map<String, dynamic> element){
     id = element['id'];
     title = element['title'];
-    image = element['image'];
+    image = ApiUrl.baseAddress + element['image'];
     catId = element['cat_id'];
     catName = element['cat_name'];
     author = element['author'];

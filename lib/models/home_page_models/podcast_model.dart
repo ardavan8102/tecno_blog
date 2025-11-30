@@ -1,3 +1,5 @@
+import 'package:tecno_blog/consts/api_url.dart';
+
 class PodcastModel {
 
   String? id;
@@ -23,7 +25,7 @@ class PodcastModel {
   PodcastModel.fromJson(Map<String, dynamic> element) {
     id = element['id'];
     title = element['title'];
-    poster = element['poster'];
+    poster = ApiUrl.baseAddress + element['poster'];
     catName = element['cat_name'];
     author = element['author'];
     view = element['view'];
