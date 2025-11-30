@@ -20,6 +20,8 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
+
+      // Localizations
       localizationsDelegates: const [
         GlobalMaterialLocalizations.delegate,
         GlobalWidgetsLocalizations.delegate,
@@ -28,6 +30,7 @@ class MyApp extends StatelessWidget {
       supportedLocales: const [
         Locale('fa', 'IR'), // Farsi
       ],
+
       title: 'Tecno Blog',
       theme: AppTheme.mainTheme,
       home: const SplashScreen(),

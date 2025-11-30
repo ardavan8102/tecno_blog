@@ -1,23 +1,22 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:tecno_blog/components/section/appbar.dart';
 import 'package:tecno_blog/components/section/bottom_navbar.dart';
 import 'package:tecno_blog/components/section/menu_drawer.dart';
+import 'package:tecno_blog/controller/page_handler_controller.dart';
 import 'package:tecno_blog/view/main/home.dart';
 import 'package:tecno_blog/view/main/profile_screen.dart';
 import 'package:tecno_blog/view/registration/register_intro.dart';
 
-class PageHandler extends StatefulWidget {
-  const PageHandler({super.key});
-
-  @override
-  State<PageHandler> createState() => _PageHandlerState();
-}
-
 final GlobalKey<ScaffoldState> _key = GlobalKey(); // Global Key State for Drawer menu
 
-class _PageHandlerState extends State<PageHandler> {
 
-  var selectedPageIndex = 0;
+
+class PageHandler extends StatelessWidget {
+
+  PageHandler({super.key});
+
+  final PageHandlerController controller = Get.put(PageHandlerController());
 
   @override
   Widget build(BuildContext context) {
@@ -44,9 +43,10 @@ class _PageHandlerState extends State<PageHandler> {
           children: [
             // Screen
             Positioned.fill(
-              child: IndexedStack(
-                index: selectedPageIndex,
-                children: tecnoMainPages,
+              child: Obx(() => IndexedStack(
+                  index: controller.selectedPageIndex.value,
+                  children: tecnoMainPages,
+                ),
               ),
             ),
             
@@ -59,9 +59,7 @@ class _PageHandlerState extends State<PageHandler> {
                 size: size,
                 changeScreen: (int value) {
                   
-                  setState(() {
-                    selectedPageIndex = value;
-                  });
+                  controller.selectedPageIndex.value = value;
 
                 },
               ),
