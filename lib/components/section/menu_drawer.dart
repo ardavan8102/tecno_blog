@@ -1,15 +1,23 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:share_plus/share_plus.dart';
+import 'package:tecno_blog/components/url_launcher.dart';
+import 'package:tecno_blog/consts/app_pages.dart';
 import 'package:tecno_blog/consts/assets.dart';
 import 'package:tecno_blog/consts/colors.dart';
 import 'package:tecno_blog/consts/strings.dart';
+import 'package:tecno_blog/controller/page_handler_controller.dart';
 
 class TecnoSideMenuDrawer extends StatelessWidget {
   const TecnoSideMenuDrawer({super.key});
 
   @override
   Widget build(BuildContext context) {
+
     var size = MediaQuery.of(context).size;
+
     var mainBodyMargin = size.width / 20;
+
     var textTheme = Theme.of(context).textTheme;
 
     return Drawer(
@@ -52,7 +60,9 @@ class TecnoSideMenuDrawer extends StatelessWidget {
                     style: textTheme.bodyMedium,
                   ),
                   onTap: () {
-                    
+                    final PageHandlerController pageController = Get.find<PageHandlerController>();
+                    pageController.selectedPageIndex.value = 2;
+                    Get.back();
                   },
                 ),
 
@@ -62,27 +72,33 @@ class TecnoSideMenuDrawer extends StatelessWidget {
                     style: textTheme.bodyMedium,
                   ),
                   onTap: () {
-                    
+                    Get.toNamed(AppRoutes.aboutUs);
                   },
                 ),
 
+                // Share Application
                 ListTile(
                   title: Text(
                     AppStrings.shareTecnoApp,
                     style: textTheme.bodyMedium,
                   ),
-                  onTap: () {
-                    
+                  onTap: () async {
+                    await SharePlus.instance.share(
+                      ShareParams(
+                        text: AppStrings.shareText,
+                      ),
+                    );
                   },
                 ),
 
+                // Redirect to Github
                 ListTile(
                   title: Text(
                     AppStrings.githubTecnoApp,
                     style: textTheme.bodyMedium,
                   ),
                   onTap: () {
-                    
+                    launcherUrlMethod(AppStrings.gitHubUrlLink);
                   },
                 ),
 

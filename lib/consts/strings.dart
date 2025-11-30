@@ -2,6 +2,9 @@ class AppStrings {
 
   static const String brandName = 'تکنـــو بلاگـــ';
 
+  // URLs
+  static const String gitHubUrlLink = 'https://github.com/ardavan8102/tecno_blog';
+
   // Home Screen
   static const String hotArticles = 'داغ ترین نوشته ها';
   static const String hotPodcastes = 'داغ ترین پادکست ها';
@@ -32,6 +35,20 @@ class AppStrings {
   static const String profilePage = 'پروفایل کاربری';
   static const String aboutUsPage = 'درباره $brandName';
   static const String shareTecnoApp = 'اشتراک گذاری $brandName';
-  static const String githubTecnoApp = '$brandName در گیتهاب';
+  static const String githubTecnoApp = '$brandName در گیت هاب';
+
+  // Side Drawer : Sub Strings
+  static const String shareText = """
+
+  تکنو بلاگ رو کشف کردم و واقعاً ترکوند! 🚀
+
+  اگه دنبال جایی هستی که مقاله‌ و پادکست‌هاتو حرفه‌ای منتشر کنی، اینجا بهترین انتخابه 🎧📚
+
+  امتحانش کن، ارزششو داره 😉
+  \n
+  برای دانلود میتونید از لینک زیر اقدام کنید : ⬇️
+  ✅ Download : https://ardavaneskandari.ir
+
+  """;
 
 }
