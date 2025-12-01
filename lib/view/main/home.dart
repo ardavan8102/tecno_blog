@@ -53,92 +53,97 @@ class HomeScreen extends StatelessWidget {
     double postThumbnailWidth,
   ) {
     return SingleChildScrollView(
-      child: Column(
-        crossAxisAlignment: .center,
-        children: [
-          // Banner
-          bigBannerSection(size, textTheme),
-      
-          const SizedBox(height: 24),
-      
-          // Tags
-          SizedBox(
-            height: 60,
-            child: ListView.builder(
-              itemCount: tagList.length,
-              scrollDirection: Axis.horizontal,
-              itemBuilder: (context, index) {
-                final item = tagList[index];
-                return Padding(
-                  padding:
-                      index ==
-                          0 // if it was first item :
-                      ? EdgeInsets.fromLTRB(8, 8, mainBodyMargin, 8)
-                      : index ==
-                            (tagList.length - 1) // If it was last item :
-                      ? EdgeInsets.fromLTRB(mainBodyMargin, 8, 8, 8)
-                      // Otherwise :
-                      : EdgeInsets.all(8),
-                  child: CategoryTagListItem(
-                    hashTagItem: item,
-                    index: index
-                  ),
-                );
-              },
-            ),
-          ),
-      
-          // Hot Articles
-          Padding(
-            padding: EdgeInsets.only(
-              right: mainBodyMargin,
-              top: 32,
-              bottom: 8,
-            ),
-            child: Column(
-              spacing: 16,
+      child: Obx(
+        () => Padding(
+          padding: .only(top: 24),
+          child: homeController.loading.value == false
+            ? Column(
+              crossAxisAlignment: .center,
               children: [
-                // Section Title
-                CustomSectionTitle(
-                  text: AppStrings.hotArticles,
-                  assetName: AppAssets.penIcon,
+                // Banner
+                bigBannerSection(size, textTheme),
+            
+                const SizedBox(height: 24),
+            
+                // Tags
+                SizedBox(
+                  height: 60,
+                  child: ListView.builder(
+                    itemCount: tagList.length,
+                    scrollDirection: Axis.horizontal,
+                    itemBuilder: (context, index) {
+                      final item = tagList[index];
+                      return Padding(
+                        padding:
+                            index ==
+                                0 // if it was first item :
+                            ? EdgeInsets.fromLTRB(8, 8, mainBodyMargin, 8)
+                            : index ==
+                                  (tagList.length - 1) // If it was last item :
+                            ? EdgeInsets.fromLTRB(mainBodyMargin, 8, 8, 8)
+                            // Otherwise :
+                            : EdgeInsets.all(8),
+                        child: CategoryTagListItem(
+                          hashTagItem: item,
+                          index: index
+                        ),
+                      );
+                    },
+                  ),
                 ),
-
-                // Top visited blog List
-                topVisited(size, mainBodyMargin, textTheme, postThumbnailHeight, postThumbnailWidth),
+            
+                // Hot Articles
+                Padding(
+                  padding: EdgeInsets.only(
+                    right: mainBodyMargin,
+                    top: 32,
+                    bottom: 8,
+                  ),
+                  child: Column(
+                    spacing: 16,
+                    children: [
+                      // Section Title
+                      CustomSectionTitle(
+                        text: AppStrings.hotArticles,
+                        assetName: AppAssets.penIcon,
+                      ),
+            
+                      // Top visited blog List
+                      topVisited(size, mainBodyMargin, textTheme, postThumbnailHeight, postThumbnailWidth),
+                    ],
+                  ),
+                ),
+            
+                // Hot Podcasts
+                Column(
+                  children: [
+                    // Section Title
+                    Padding(
+                      padding: EdgeInsets.only(
+                        right: mainBodyMargin,
+                        top: 8,
+                        bottom: 8,
+                      ),
+                      child: CustomSectionTitle(
+                        text: AppStrings.hotPodcastes,
+                        assetName: AppAssets.microphoneIcon,
+                      ),
+                    ),
+                      
+                    // Podcast List View
+                    topPodcasts(size, mainBodyMargin, textTheme, postThumbnailHeight, postThumbnailWidth),
+                  
+                    SizedBox(
+                      height: 32,
+                    ),
+                  
+                  ],
+                ),
               ],
-            ),
-          ),
-      
-          // Hot Podcasts
-          Column(
-            children: [
-              // Section Title
-              Padding(
-                padding: EdgeInsets.only(
-                  right: mainBodyMargin,
-                  top: 8,
-                  bottom: 8,
-                ),
-                child: CustomSectionTitle(
-                  text: AppStrings.hotPodcastes,
-                  assetName: AppAssets.microphoneIcon,
-                ),
-              ),
-                
-              // Podcast List View
-              topPodcasts(size, mainBodyMargin, textTheme, postThumbnailHeight, postThumbnailWidth),
-            
-              SizedBox(
-                height: 32,
-              ),
-            
-            ],
-          ),
-      
-          //
-        ],
-      ),
+            )
+            : LoadingCube(),
+        ),
+      )
     );
   }
 
@@ -229,46 +234,53 @@ class HomeScreen extends StatelessWidget {
           child: Stack(
             children: [
               // Image
-              CachedNetworkImage(
-                imageUrl: item.poster ?? "",
-                imageBuilder: (context, imageProvider) {
-                  return Container(
-                    decoration: BoxDecoration(
-                      image: DecorationImage(
-                        image: imageProvider,
-                        fit: BoxFit.cover,
+              Container(
+                foregroundDecoration: BoxDecoration(
+                  gradient: LinearGradient(
+                    colors: AppGradientColors.postOverlay,
+                    begin: .topCenter,
+                    end: .bottomCenter,
+                  ),
+                  borderRadius: .circular(16)
+                ),
+                child: CachedNetworkImage(
+                  imageUrl: item.poster ?? "",
+                  imageBuilder: (context, imageProvider) {
+                    return Container(
+                      decoration: BoxDecoration(
+                        image: DecorationImage(
+                          image: imageProvider,
+                          fit: BoxFit.cover,
+                        ),
+                        borderRadius: BorderRadius.circular(16),
+                      )
+                    );
+                  },
+                  placeholder: (context, url) {
+                    return LoadingCube();
+                  },
+                  errorWidget: (context, url, error) {
+                    return Container(
+                      padding: const EdgeInsets.only(top: 8, left: 8),
+                      decoration: BoxDecoration(
+                        gradient: LinearGradient(
+                          colors: AppGradientColors.tags,
+                          begin: .bottomRight,
+                          end: .topLeft,
+                        ),
+                        borderRadius: BorderRadius.circular(16)
                       ),
-                      borderRadius: BorderRadius.circular(16),
-                    )
-                  );
-                },
-                placeholder: (context, url) {
-                  return const SpinKitFadingCube(
-                    color: AppSolidColors.primary,
-                    size: 32,
-                  );
-                },
-                errorWidget: (context, url, error) {
-                  return Container(
-                    padding: const EdgeInsets.only(top: 8, left: 8),
-                    decoration: BoxDecoration(
-                      gradient: LinearGradient(
-                        colors: AppGradientColors.tags,
-                        begin: .bottomRight,
-                        end: .topLeft,
+                      child: Align(
+                        alignment: .topLeft,
+                        child: Icon(
+                          Icons.image_not_supported_outlined,
+                          color: Colors.white,
+                          size: 50
+                        ),
                       ),
-                      borderRadius: BorderRadius.circular(16)
-                    ),
-                    child: Align(
-                      alignment: .topLeft,
-                      child: Icon(
-                        Icons.image_not_supported_outlined,
-                        color: Colors.white,
-                        size: 50
-                      ),
-                    ),
-                  );
-                },
+                    );
+                  },
+                ),
               ),
 
               // Meta Tags
@@ -331,7 +343,7 @@ class HomeScreen extends StatelessWidget {
   }
 
   // Big Banner Section
-  Stack bigBannerSection(Size size, TextTheme textTheme) {
+  Widget bigBannerSection(Size size, TextTheme textTheme) {
     return Stack(
       alignment: .topCenter,
       children: [
@@ -343,7 +355,7 @@ class HomeScreen extends StatelessWidget {
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(16),
               image: DecorationImage(
-                image: AssetImage(homePageBannerMap['imageAsset']),
+                image: NetworkImage(homeController.poster.value.image!),
                 fit: BoxFit.cover,
               ),
             ),
@@ -369,30 +381,12 @@ class HomeScreen extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             spacing: 12,
             children: [
-              Row(
-                mainAxisAlignment: .spaceBetween,
-                children: [
-                  Text(
-                    '${homePageBannerMap['writer']} | ${homePageBannerMap['date']}',
-                    style: textTheme.labelSmall,
-                  ),
-                  Row(
-                    spacing: 6,
-                    children: [
-                      Text(
-                        homePageBannerMap['view'],
-                        style: textTheme.labelSmall,
-                      ),
-                      Icon(
-                        CupertinoIcons.eye_fill,
-                        size: 18,
-                        color: Colors.white.withValues(alpha: 0.5),
-                      ),
-                    ],
-                  ),
-                ],
+              Text(
+                homeController.poster.value.title!,
+                style: textTheme.labelLarge,
+                maxLines: 2,
+                overflow: .ellipsis,
               ),
-              Text(homePageBannerMap['title'], style: textTheme.labelLarge),
             ],
           ),
         ),
@@ -418,46 +412,56 @@ class HomeScreen extends StatelessWidget {
           child: Stack(
             children: [
               // Image
-              CachedNetworkImage(
-                imageUrl: item.image ?? "",
-                imageBuilder: (context, imageProvider) {
-                  return Container(
-                    decoration: BoxDecoration(
-                      image: DecorationImage(
-                        image: imageProvider,
-                        fit: BoxFit.cover,
+              Container(
+                foregroundDecoration: BoxDecoration(
+                  gradient: LinearGradient(
+                    colors: AppGradientColors.postOverlay,
+                    begin: .topCenter,
+                    end: .bottomCenter,
+                  ),
+                  borderRadius: .circular(16)
+                ),
+                child: CachedNetworkImage(
+                  imageUrl: item.image ?? "",
+                  imageBuilder: (context, imageProvider) {
+                    return Container(
+                      decoration: BoxDecoration(
+                        image: DecorationImage(
+                          image: imageProvider,
+                          fit: BoxFit.cover,
+                        ),
+                        borderRadius: BorderRadius.circular(16),
+                      )
+                    );
+                  },
+                  placeholder: (context, url) {
+                    return const SpinKitFadingCube(
+                      color: AppSolidColors.primary,
+                      size: 32,
+                    );
+                  },
+                  errorWidget: (context, url, error) {
+                    return Container(
+                      padding: const EdgeInsets.only(top: 8, left: 8),
+                      decoration: BoxDecoration(
+                        gradient: LinearGradient(
+                          colors: AppGradientColors.tags,
+                          begin: .bottomRight,
+                          end: .topLeft,
+                        ),
+                        borderRadius: BorderRadius.circular(16)
                       ),
-                      borderRadius: BorderRadius.circular(16),
-                    )
-                  );
-                },
-                placeholder: (context, url) {
-                  return const SpinKitFadingCube(
-                    color: AppSolidColors.primary,
-                    size: 32,
-                  );
-                },
-                errorWidget: (context, url, error) {
-                  return Container(
-                    padding: const EdgeInsets.only(top: 8, left: 8),
-                    decoration: BoxDecoration(
-                      gradient: LinearGradient(
-                        colors: AppGradientColors.tags,
-                        begin: .bottomRight,
-                        end: .topLeft,
+                      child: Align(
+                        alignment: .topLeft,
+                        child: Icon(
+                          Icons.image_not_supported_outlined,
+                          color: Colors.white,
+                          size: 50
+                        ),
                       ),
-                      borderRadius: BorderRadius.circular(16)
-                    ),
-                    child: Align(
-                      alignment: .topLeft,
-                      child: Icon(
-                        Icons.image_not_supported_outlined,
-                        color: Colors.white,
-                        size: 50
-                      ),
-                    ),
-                  );
-                },
+                    );
+                  },
+                ),
               ),
 
               // Meta Tags
@@ -510,6 +514,20 @@ class HomeScreen extends StatelessWidget {
           ),
         ),
       ],
+    );
+  }
+}
+
+class LoadingCube extends StatelessWidget {
+  const LoadingCube({
+    super.key,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return const SpinKitFadingCube(
+      color: AppSolidColors.primary,
+      size: 32,
     );
   }
 }

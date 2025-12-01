@@ -104,7 +104,8 @@ class AppTheme {
       labelLarge: TextStyle(
         fontSize: 18,
         fontWeight: FontWeight.w700,
-        color: AppSolidColors.textLight
+        color: AppSolidColors.textLight,
+        height: 2,
       ),
     ),
     inputDecorationTheme: InputDecorationTheme(

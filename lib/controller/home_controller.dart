@@ -10,11 +10,13 @@ import 'package:tecno_blog/services/dio_service.dart';
 
 class HomeController extends GetxController {
 
-  late Rx<PosterModel> poster;
+  late Rx<PosterModel> poster = PosterModel().obs;
 
   RxList<TagsModel> tagsList = RxList();
   RxList<ArticleModel> topVisitedList = RxList();
   RxList<PodcastModel> topPodcastsList = RxList();
+
+  RxBool loading = false.obs;
 
   @override
   onInit() {
@@ -24,13 +26,15 @@ class HomeController extends GetxController {
 
   dynamic getHomeItems() async {
 
+    loading.value = true;
+
     var response = await DioService().getMethod(ApiUrl.getHomeItems);
 
     if (response.statusCode == 200) {
-      //var poster = response.data['poster'];
+      var posterData = response.data['poster'];
       var topVisiteds = response.data['top_visited'];
       var topPodcasts = response.data['top_podcasts'];
-      //var tags = response.data['tags'];
+      //var tagsData = response.data['tags'];
 
       topVisiteds.forEach((element){
         topVisitedList.add(
@@ -43,6 +47,11 @@ class HomeController extends GetxController {
           PodcastModel.fromJson(element)
         );
       });
+
+      poster.value = PosterModel.fromJson(posterData);
+
+      loading.value = false;
+
     } else {
       log('Status Code ${response.statuseCode} for Home Items');
     }
