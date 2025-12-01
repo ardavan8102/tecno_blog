@@ -66,31 +66,7 @@ class HomeScreen extends StatelessWidget {
                 const SizedBox(height: 24),
             
                 // Tags
-                SizedBox(
-                  height: 60,
-                  child: ListView.builder(
-                    itemCount: tagList.length,
-                    scrollDirection: Axis.horizontal,
-                    itemBuilder: (context, index) {
-                      final item = tagList[index];
-                      return Padding(
-                        padding:
-                            index ==
-                                0 // if it was first item :
-                            ? EdgeInsets.fromLTRB(8, 8, mainBodyMargin, 8)
-                            : index ==
-                                  (tagList.length - 1) // If it was last item :
-                            ? EdgeInsets.fromLTRB(mainBodyMargin, 8, 8, 8)
-                            // Otherwise :
-                            : EdgeInsets.all(8),
-                        child: CategoryTagListItem(
-                          hashTagItem: item,
-                          index: index
-                        ),
-                      );
-                    },
-                  ),
-                ),
+                tagsBuilder(mainBodyMargin),
             
                 // Hot Articles
                 Padding(
@@ -144,6 +120,35 @@ class HomeScreen extends StatelessWidget {
             : LoadingCube(),
         ),
       )
+    );
+  }
+
+  // Tags Builder
+  Widget tagsBuilder(double mainBodyMargin) {
+    return SizedBox(
+      height: 60,
+      child: ListView.builder(
+        itemCount: tagList.length,
+        scrollDirection: Axis.horizontal,
+        itemBuilder: (context, index) {
+          final item = homeController.tagsList[index];
+          return Padding(
+            padding:
+                index ==
+                    0 // if it was first item :
+                ? EdgeInsets.fromLTRB(8, 8, mainBodyMargin, 8)
+                : index ==
+                      (tagList.length - 1) // If it was last item :
+                ? EdgeInsets.fromLTRB(mainBodyMargin, 8, 8, 8)
+                // Otherwise :
+                : EdgeInsets.all(8),
+            child: CategoryTagListItem(
+              hashTagItem: item,
+              index: index
+            ),
+          );
+        },
+      ),
     );
   }
 

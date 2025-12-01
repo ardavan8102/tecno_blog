@@ -1,5 +1,4 @@
 import 'dart:developer';
-
 import 'package:get/get.dart';
 import 'package:tecno_blog/consts/api_url.dart';
 import 'package:tecno_blog/models/home_page_models/article_model.dart';
@@ -34,7 +33,7 @@ class HomeController extends GetxController {
       var posterData = response.data['poster'];
       var topVisiteds = response.data['top_visited'];
       var topPodcasts = response.data['top_podcasts'];
-      //var tagsData = response.data['tags'];
+      var tagsData = response.data['tags'];
 
       topVisiteds.forEach((element){
         topVisitedList.add(
@@ -49,6 +48,12 @@ class HomeController extends GetxController {
       });
 
       poster.value = PosterModel.fromJson(posterData);
+
+      tagsData.forEach((element){
+        tagsList.add(
+          TagsModel.fromJson(element)
+        );
+      });
 
       loading.value = false;
 

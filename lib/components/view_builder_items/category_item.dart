@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:tecno_blog/consts/assets.dart';
 import 'package:tecno_blog/consts/colors.dart';
-import 'package:tecno_blog/models/data_models.dart';
+import 'package:tecno_blog/models/home_page_models/tags_model.dart';
 
 class CategoryTagListItem extends StatelessWidget {
-  final HashTag hashTagItem;
+  final TagsModel hashTagItem;
   final int index;
 
   const CategoryTagListItem({

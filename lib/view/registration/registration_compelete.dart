@@ -1,11 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:get/get.dart';
 import 'package:tecno_blog/components/buttons/elevated_button.dart';
 import 'package:tecno_blog/components/snackbars.dart';
 import 'package:tecno_blog/components/view_builder_items/category_item.dart';
 import 'package:tecno_blog/components/view_builder_items/sub_category_item.dart';
 import 'package:tecno_blog/consts/assets.dart';
 import 'package:tecno_blog/consts/strings.dart';
+import 'package:tecno_blog/controller/home_controller.dart';
 import 'package:tecno_blog/models/data_models.dart';
 import 'package:tecno_blog/models/fake_data.dart';
 
@@ -181,7 +183,7 @@ class _RegistrationCompeletePageState extends State<RegistrationCompeletePage> {
         mainAxisSpacing: 12,
       ),
       itemBuilder: (context, index) {
-        final item = tagList[index];
+        final item = Get.find<HomeController>().tagsList[index];
         return InkWell(
           onTap: () {
             // Check if tag already exists in the list:
