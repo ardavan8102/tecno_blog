@@ -37,6 +37,12 @@ class AppGradientColors {
     Color.fromARGB(220, 28, 20, 81)
   ];
 
+  static const List<Color> articleImageSinglePlage = [
+    Color.fromARGB(0, 0, 0, 0),
+    Color.fromARGB(120, 72, 20, 88),
+    Color.fromARGB(240, 28, 20, 81)
+  ];
+
   static const List<Color> postOverlay = [
     Color.fromARGB(0, 255, 255, 255),
     Color.fromARGB(255, 0, 0, 0),

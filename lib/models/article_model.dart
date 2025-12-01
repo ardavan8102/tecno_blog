@@ -11,7 +11,6 @@ class ArticleModel {
   String? view;
   String? status;
   String? createdAt;
-  //String? isFavorite;
 
   ArticleModel({
     required this.id,
@@ -23,7 +22,6 @@ class ArticleModel {
     required this.view,
     required this.status,
     required this.createdAt,
-    //this.isFavorite,
   });
 
 

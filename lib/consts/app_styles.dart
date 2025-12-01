@@ -3,12 +3,21 @@ import 'package:tecno_blog/consts/colors.dart';
 
 class AppStyles {
 
+  // Texts
   static TextStyle articlePostListTitle = TextStyle(
     fontSize: 12,
     fontWeight: FontWeight.w700,
     color: AppSolidColors.titleText,
   );
 
+  static TextStyle articleSinglePageTitleText = TextStyle(
+    fontSize: 20,
+    fontWeight: FontWeight.w800,
+    height: 1.8,
+  );
+
+
+  // Buttons
   static ButtonStyle iconButtonGlassStyle = ButtonStyle(
     backgroundColor: WidgetStateProperty.all(AppSolidColors.primary.withValues(alpha: 0.15)),
     shape: WidgetStateProperty.all(

@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:tecno_blog/consts/colors.dart';
 import 'package:tecno_blog/consts/strings.dart';
-import 'package:tecno_blog/controller/page_handler_controller.dart';
+import 'package:tecno_blog/controller/small_controllers/page_handler_controller.dart';
 import 'package:tecno_blog/consts/app_styles.dart';
 
 class ReturnHomeButton extends StatelessWidget {

@@ -9,11 +9,13 @@ import 'package:tecno_blog/consts/colors.dart';
 import 'package:tecno_blog/consts/strings.dart';
 import 'package:tecno_blog/controller/article_controller.dart';
 import 'package:tecno_blog/models/article_model.dart';
+import 'package:tecno_blog/view/articles/article_single_page.dart';
 
+// ignore: must_be_immutable
 class ArticlesPage extends StatelessWidget {
   ArticlesPage({super.key});
 
-  final ArticleController articleController = Get.put(ArticleController());
+  ArticleController articleController = Get.put(ArticleController());
 
   @override
   Widget build(BuildContext context) {
@@ -47,15 +49,17 @@ class ArticlesPage extends StatelessWidget {
                 borderRadius: .circular(18),
               ),
               child: Obx(
-                () => ListView.builder(
-                  itemCount: articleController.articlesList.length,
-                  scrollDirection: .vertical,
-                  itemBuilder: (context, index) {
-                    final post = articleController.articlesList[index];
-                
-                    return articleListPostItem(size, post, textTheme);
-                  },
-                ),
+                () => articleController.loading.value == false 
+                  ? ListView.builder(
+                    itemCount: articleController.articlesList.length,
+                    scrollDirection: .vertical,
+                    itemBuilder: (context, index) {
+                      final post = articleController.articlesList[index];
+                  
+                      return articleListPostItem(size, post, textTheme, index);
+                    },
+                  )
+                  : LoadingCube(),
               ),
             ),
           ],
@@ -66,7 +70,7 @@ class ArticlesPage extends StatelessWidget {
 
 
   // Post Item
-  Padding articleListPostItem(Size size, ArticleModel post, TextTheme textTheme) {
+  Padding articleListPostItem(Size size, ArticleModel post, TextTheme textTheme, int index) {
     return Padding(
       padding: const EdgeInsets.only(top: 8, bottom: 8),
       child: Container(
@@ -82,7 +86,7 @@ class ArticlesPage extends StatelessWidget {
             postItemCardThumbnail(post, size),
 
             // Post Details
-            postItemCardDetails(post, textTheme),
+            postItemCardDetails(post, textTheme, index),
           ],
         ),
       ),
@@ -90,7 +94,7 @@ class ArticlesPage extends StatelessWidget {
   }
 
   // Post Item Details
-  Expanded postItemCardDetails(ArticleModel post, TextTheme textTheme) {
+  Expanded postItemCardDetails(ArticleModel post, TextTheme textTheme, int index) {
     return Expanded(
       child: Padding(
         padding: const EdgeInsets.all(12.0),
@@ -128,7 +132,9 @@ class ArticlesPage extends StatelessWidget {
               
                   IconButton(
                     style: AppStyles.iconButtonGlassStyle,
-                    onPressed: () {},
+                    onPressed: () {
+                      Get.to(ArticleSinglePage(articleIndex: index));
+                    },
                     icon: Icon(
                       CupertinoIcons.right_chevron,
                       size: 18,

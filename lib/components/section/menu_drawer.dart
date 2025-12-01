@@ -6,7 +6,7 @@ import 'package:tecno_blog/consts/app_pages.dart';
 import 'package:tecno_blog/consts/assets.dart';
 import 'package:tecno_blog/consts/colors.dart';
 import 'package:tecno_blog/consts/strings.dart';
-import 'package:tecno_blog/controller/page_handler_controller.dart';
+import 'package:tecno_blog/controller/small_controllers/page_handler_controller.dart';
 
 class TecnoSideMenuDrawer extends StatelessWidget {
   const TecnoSideMenuDrawer({super.key});
