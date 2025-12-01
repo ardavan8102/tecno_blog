@@ -3,6 +3,7 @@ class AppStrings {
   // General
   static const String brandName = 'تکنـــو بلاگـــ';
   static const String noImageFound = 'بدون تصویر';
+  static const String bacToHomekButtonText = 'رفتن به خانه';
 
   // URLs
   static const String gitHubUrlLink = 'https://github.com/ardavan8102/tecno_blog';
@@ -52,5 +53,9 @@ class AppStrings {
   ✅ Download : https://ardavaneskandari.ir
 
   """;
+
+
+  // Articles list
+  static const String appBarTitleText = 'لیست مقالات';
 
 }

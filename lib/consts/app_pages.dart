@@ -1,5 +1,6 @@
 import 'package:get/get.dart';
 import 'package:tecno_blog/page_handler.dart';
+import 'package:tecno_blog/view/articles/articles_page.dart';
 import 'package:tecno_blog/view/main/about_us.dart';
 import 'package:tecno_blog/view/splash.dart';
 
@@ -7,6 +8,7 @@ class AppRoutes {
   static const splash = '/';
   static const home = '/page-handler';
   static const aboutUs = '/about-us';
+  static const articlesListPage = '/article-list';
 }
 
 class AppPages {
@@ -22,6 +24,10 @@ class AppPages {
     GetPage(
       name: AppRoutes.aboutUs,
       page: () => AboutUsPage(), 
+    ),
+    GetPage(
+      name: AppRoutes.articlesListPage,
+      page: () => ArticlesPage(), 
     ),
   ];
 }

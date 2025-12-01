@@ -78,16 +78,19 @@ class AppTheme {
         fontSize: 20,
         fontFamily: 'Yekan',
         fontWeight: FontWeight.w500,
+        height: 1.7,
       ),
       bodyMedium: TextStyle(
         fontSize: 18,
         fontFamily: 'Yekan',
         fontWeight: FontWeight.w400,
+        height: 1.7,
       ),
       bodySmall: TextStyle(
         fontSize: 16,
         fontFamily: 'Yekan',
         fontWeight: FontWeight.w300,
+        height: 1.7,
       ),
 
       // Labels

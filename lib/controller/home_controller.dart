@@ -1,10 +1,9 @@
-import 'dart:developer';
 import 'package:get/get.dart';
 import 'package:tecno_blog/consts/api_url.dart';
-import 'package:tecno_blog/models/home_page_models/article_model.dart';
-import 'package:tecno_blog/models/home_page_models/podcast_model.dart';
-import 'package:tecno_blog/models/home_page_models/poster_model.dart';
-import 'package:tecno_blog/models/home_page_models/tags_model.dart';
+import 'package:tecno_blog/models/article_model.dart';
+import 'package:tecno_blog/models/podcast_model.dart';
+import 'package:tecno_blog/models/poster_model.dart';
+import 'package:tecno_blog/models/tags_model.dart';
 import 'package:tecno_blog/services/dio_service.dart';
 
 class HomeController extends GetxController {
@@ -57,8 +56,6 @@ class HomeController extends GetxController {
 
       loading.value = false;
 
-    } else {
-      log('Status Code ${response.statuseCode} for Home Items');
     }
 
   }

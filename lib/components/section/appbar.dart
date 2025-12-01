@@ -13,6 +13,9 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
     var size = MediaQuery.of(context).size;
     
     return AppBar(
+      elevation: 0,
+      scrolledUnderElevation: 0,
+      surfaceTintColor: Colors.transparent,
       automaticallyImplyLeading: false,
       backgroundColor: AppSolidColors.scaffoldBG,
       title: Row(

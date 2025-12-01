@@ -4,9 +4,9 @@ import 'package:tecno_blog/components/section/appbar.dart';
 import 'package:tecno_blog/components/section/bottom_navbar.dart';
 import 'package:tecno_blog/components/section/menu_drawer.dart';
 import 'package:tecno_blog/controller/page_handler_controller.dart';
+import 'package:tecno_blog/view/articles/articles_page.dart';
 import 'package:tecno_blog/view/main/home.dart';
 import 'package:tecno_blog/view/profile/profile_screen.dart';
-import 'package:tecno_blog/view/registration/register_intro.dart';
 
 final GlobalKey<ScaffoldState> _key = GlobalKey(); // Global Key State for Drawer menu
 
@@ -26,7 +26,7 @@ class PageHandler extends StatelessWidget {
 
       HomeScreen(),
 
-      RegisterIntroPage(),
+      ArticlesPage(),
 
       ProfileScreen(),
 

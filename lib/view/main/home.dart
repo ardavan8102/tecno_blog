@@ -3,6 +3,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:get/get.dart';
+import 'package:tecno_blog/components/loading_cube.dart';
 import 'package:tecno_blog/components/view_builder_items/category_item.dart';
 import 'package:tecno_blog/components/section_title.dart';
 import 'package:tecno_blog/consts/assets.dart';
@@ -10,8 +11,8 @@ import 'package:tecno_blog/consts/colors.dart';
 import 'package:tecno_blog/consts/strings.dart';
 import 'package:tecno_blog/controller/home_controller.dart';
 import 'package:tecno_blog/models/fake_data.dart';
-import 'package:tecno_blog/models/home_page_models/article_model.dart';
-import 'package:tecno_blog/models/home_page_models/podcast_model.dart';
+import 'package:tecno_blog/models/article_model.dart';
+import 'package:tecno_blog/models/podcast_model.dart';
 
 // ignore: must_be_immutable
 class HomeScreen extends StatelessWidget {
@@ -519,20 +520,6 @@ class HomeScreen extends StatelessWidget {
           ),
         ),
       ],
-    );
-  }
-}
-
-class LoadingCube extends StatelessWidget {
-  const LoadingCube({
-    super.key,
-  });
-
-  @override
-  Widget build(BuildContext context) {
-    return const SpinKitFadingCube(
-      color: AppSolidColors.primary,
-      size: 32,
     );
   }
 }
