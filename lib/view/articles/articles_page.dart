@@ -7,7 +7,8 @@ import 'package:tecno_blog/components/loading_cube.dart';
 import 'package:tecno_blog/consts/app_styles.dart';
 import 'package:tecno_blog/consts/colors.dart';
 import 'package:tecno_blog/consts/strings.dart';
-import 'package:tecno_blog/controller/article_controller.dart';
+import 'package:tecno_blog/controller/article_single_page_controller.dart';
+import 'package:tecno_blog/controller/list_article_controller.dart';
 import 'package:tecno_blog/models/article_model.dart';
 import 'package:tecno_blog/view/articles/article_single_page.dart';
 
@@ -15,7 +16,8 @@ import 'package:tecno_blog/view/articles/article_single_page.dart';
 class ArticlesPage extends StatelessWidget {
   ArticlesPage({super.key});
 
-  ArticleController articleController = Get.put(ArticleController());
+  ListArticleController articleListController = Get.put(ListArticleController());
+  ArticleSinglePageController articleSinglePageController = Get.put(ArticleSinglePageController());
 
   @override
   Widget build(BuildContext context) {
@@ -49,12 +51,12 @@ class ArticlesPage extends StatelessWidget {
                 borderRadius: .circular(18),
               ),
               child: Obx(
-                () => articleController.loading.value == false 
+                () => articleListController.loading.value == false 
                   ? ListView.builder(
-                    itemCount: articleController.articlesList.length,
+                    itemCount: articleListController.articlesList.length,
                     scrollDirection: .vertical,
                     itemBuilder: (context, index) {
-                      final post = articleController.articlesList[index];
+                      final post = articleListController.articlesList[index];
                   
                       return articleListPostItem(size, post, textTheme, index);
                     },
@@ -133,7 +135,11 @@ class ArticlesPage extends StatelessWidget {
                   IconButton(
                     style: AppStyles.iconButtonGlassStyle,
                     onPressed: () {
-                      Get.to(ArticleSinglePage(articleIndex: index));
+                      articleSinglePageController.id.value = int.parse(articleListController.articlesList[index].id!);
+                      articleSinglePageController.getArticleInformation();
+                      Get.to(
+                        ArticleSinglePage(),
+                      );
                     },
                     icon: Icon(
                       CupertinoIcons.right_chevron,

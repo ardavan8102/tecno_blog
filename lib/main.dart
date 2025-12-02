@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:get/get.dart';
 import 'package:tecno_blog/consts/app_pages.dart';
 import 'package:tecno_blog/consts/app_theme.dart';
@@ -22,17 +21,9 @@ class MyApp extends StatelessWidget {
     return GetMaterialApp(
       debugShowCheckedModeBanner: false,
 
-      // Localizations : A & B Notes Are needed for GetMaterialApp
-      locale: const Locale('fa', 'IR'), // NOTE A
-      fallbackLocale: const Locale('fa', 'IR'), // NOTE B
-      localizationsDelegates: const [
-        GlobalMaterialLocalizations.delegate,
-        GlobalWidgetsLocalizations.delegate,
-        GlobalCupertinoLocalizations.delegate,
-      ],
-      supportedLocales: const [
-        Locale('fa', 'IR'), // Farsi
-      ],
+      // Localizations
+      locale: const Locale('fa', 'IR'),
+      fallbackLocale: const Locale('fa', 'IR'),
 
       title: 'Tecno Blog',
       theme: AppTheme.mainTheme,

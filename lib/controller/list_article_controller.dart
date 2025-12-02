@@ -3,7 +3,7 @@ import 'package:tecno_blog/consts/api_url.dart';
 import 'package:tecno_blog/models/article_model.dart';
 import 'package:tecno_blog/services/dio_service.dart';
 
-class ArticleController extends GetxController {
+class ListArticleController extends GetxController {
 
   RxList<ArticleModel> articlesList = RxList();
 
