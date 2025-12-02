@@ -8,13 +8,14 @@ import 'package:tecno_blog/view/articles/articles_page.dart';
 import 'package:tecno_blog/view/main/home.dart';
 import 'package:tecno_blog/view/profile/profile_screen.dart';
 
-final GlobalKey<ScaffoldState> _key = GlobalKey(); // Global Key State for Drawer menu
 
 class PageHandler extends StatelessWidget {
 
   PageHandler({super.key});
 
   final PageHandlerController controller = Get.put(PageHandlerController());
+
+  final GlobalKey<ScaffoldState> _key = GlobalKey(); // Global Key State for Drawer menu
 
   @override
   Widget build(BuildContext context) {

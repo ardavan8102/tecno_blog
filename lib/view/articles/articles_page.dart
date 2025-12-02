@@ -37,6 +37,8 @@ class ArticlesPage extends StatelessWidget {
           
             const SizedBox(height: 16),
 
+            const SizedBox(height: 16),
+
             // Articles List
             Container(
               padding: const EdgeInsets.all(24),
@@ -135,10 +137,9 @@ class ArticlesPage extends StatelessWidget {
                   IconButton(
                     style: AppStyles.iconButtonGlassStyle,
                     onPressed: () {
-                      articleSinglePageController.id.value = int.parse(articleListController.articlesList[index].id!);
-                      articleSinglePageController.getArticleInformation();
                       Get.to(
-                        ArticleSinglePage(),
+                        () => ArticleSinglePage(),
+                        arguments: int.parse(articleListController.articlesList[index].id!)
                       );
                     },
                     icon: Icon(

@@ -5,6 +5,7 @@ import 'package:get/get.dart';
 import 'package:tecno_blog/components/html_text_widget.dart';
 import 'package:tecno_blog/components/loading_cube.dart';
 import 'package:tecno_blog/components/section/single_article_appbar.dart';
+import 'package:tecno_blog/consts/app_pages.dart';
 import 'package:tecno_blog/consts/app_styles.dart';
 import 'package:tecno_blog/consts/assets.dart';
 import 'package:tecno_blog/consts/colors.dart';
@@ -12,6 +13,7 @@ import 'package:tecno_blog/consts/strings.dart';
 import 'package:tecno_blog/controller/article_single_page_controller.dart';
 import 'package:tecno_blog/controller/list_article_controller.dart';
 import 'package:tecno_blog/controller/small_controllers/bookmarked_controller.dart';
+import 'package:tecno_blog/controller/small_controllers/page_handler_controller.dart';
 import 'package:tecno_blog/models/article_info.dart';
 import 'package:tecno_blog/models/article_model.dart';
 import 'package:tecno_blog/models/tags_model.dart';
@@ -35,13 +37,15 @@ class _ArticleSinglePageState extends State<ArticleSinglePage> {
   void initState() {
     super.initState();
 
-    // Clearing Lists Before Fetch
+    final id = Get.arguments as int;
+
+    articleSinglePageController.id.value = id;
+
     articleSinglePageController.relatedArticlesList.clear();
     articleSinglePageController.articleTagsList.clear();
 
-    // Fetch Data
-    articleSinglePageController.articleInfoModel.value = ArticleInfo();
     articleSinglePageController.getArticleInformation();
+
   }
 
   @override
@@ -217,31 +221,43 @@ class _ArticleSinglePageState extends State<ArticleSinglePage> {
   }
 
   // Tag List View Item
-  Container tagListViewItem(RxList<TagsModel> articleItem, int index, TextTheme textTheme) {
-    return Container(
-      padding: EdgeInsets.only(right: 12, left: 12),
-      height: 70,
-      decoration: BoxDecoration(
-        color: AppSolidColors.accent.withValues(alpha: 0.1),
-        borderRadius: .circular(10)
-      ),
-      child: Row(
-        spacing: 10,
-        children: [
-          Image.asset(
-            AppAssets.hashtagIcon,
-            width: 24,
-            height: 24,
-            color: AppSolidColors.accent,
-          ),
-          Text(
-            articleItem[index].title ?? "بدون دسته بندی",
-            style: textTheme.bodySmall!.copyWith(
+  Widget tagListViewItem(RxList<TagsModel> articleTag, int index, TextTheme textTheme) {
+    return GestureDetector(
+      onTap: () async {
+        var tagId = articleTag[index].id ?? "";
+
+        articleController.articlesList.clear(); 
+        await articleController.getArticleListByTagId(tagId);
+
+        // TODO : Crash on opening tag's article
+        Get.find<PageHandlerController>().selectedPageIndex = 1.obs;
+        Get.toNamed(AppRoutes.home);
+      },
+      child: Container(
+        padding: EdgeInsets.only(right: 12, left: 12),
+        height: 70,
+        decoration: BoxDecoration(
+          color: AppSolidColors.accent.withValues(alpha: 0.1),
+          borderRadius: .circular(10)
+        ),
+        child: Row(
+          spacing: 10,
+          children: [
+            Image.asset(
+              AppAssets.hashtagIcon,
+              width: 24,
+              height: 24,
               color: AppSolidColors.accent,
-              fontWeight: FontWeight.w500,
             ),
-          )
-        ],
+            Text(
+              articleTag[index].title ?? "بدون دسته بندی",
+              style: textTheme.bodySmall!.copyWith(
+                color: AppSolidColors.accent,
+                fontWeight: FontWeight.w500,
+              ),
+            )
+          ],
+        ),
       ),
     );
   }

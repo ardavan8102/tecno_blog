@@ -18,6 +18,9 @@ class ArticleSinglePageController extends GetxController {
 
 
   dynamic getArticleInformation() async {
+
+    articleInfoModel = ArticleInfo().obs;
+
     loading.value = true;
 
     var userId = ''; // TODO : User id is hardcode
