@@ -12,7 +12,6 @@ class AppStrings {
   // Home Screen
   static const String hotArticles = 'داغ ترین نوشته ها';
   static const String hotPodcastes = 'داغ ترین پادکست ها';
-  static const String relatedPosts = 'نوشته های مرتبط';
 
   //
   static const String submitArticle = 'ارسال مقاله';
@@ -63,5 +62,6 @@ class AppStrings {
   static const String shareDialogTitleText = 'اشتراک گذاری مقاله';
   static const String shareDescriptionText = 'من عاشق این مقاله شدم و نکات و حرفهای خیلی جالبی داخلش زده شده که توصیه میکنم تو هم مطالعه ش کنی';
   static const String articleContentSectionTitle = 'از اینجا بخوانید';
+  static const String relatedPostsTitle = 'مقالات مشابه';
 
 }

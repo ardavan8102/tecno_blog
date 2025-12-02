@@ -1,6 +1,8 @@
 import 'package:get/get.dart';
 import 'package:tecno_blog/consts/api_url.dart';
 import 'package:tecno_blog/models/article_info.dart';
+import 'package:tecno_blog/models/article_model.dart';
+import 'package:tecno_blog/models/tags_model.dart';
 import 'package:tecno_blog/services/dio_service.dart';
 
 class ArticleSinglePageController extends GetxController {
@@ -10,10 +12,10 @@ class ArticleSinglePageController extends GetxController {
 
   Rx<ArticleInfo> articleInfoModel = ArticleInfo().obs;
 
-  @override
-  onInit(){
-    super.onInit();
-  }
+  RxList<ArticleModel> relatedArticlesList = RxList();
+
+  RxList<TagsModel> articleTagsList = RxList();
+
 
   dynamic getArticleInformation() async {
     loading.value = true;
@@ -24,6 +26,18 @@ class ArticleSinglePageController extends GetxController {
     if (response.statusCode == 200) {
       
       articleInfoModel.value = ArticleInfo.fromJson(response.data);
+
+      response.data['related'].forEach((element){
+        relatedArticlesList.add(
+          ArticleModel.fromJson(element)
+        );
+      });
+
+      response.data['tags'].forEach((element){
+        articleTagsList.add(
+          TagsModel.fromJson(element)
+        );
+      });
 
       loading.value = false;
 
