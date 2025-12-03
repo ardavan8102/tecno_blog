@@ -3,9 +3,9 @@ import 'package:dio/dio.dart';
 
 class DioService {
 
-  Future<dynamic> getMethod(String url) async {
+  Dio dio = Dio();
 
-    Dio dio = Dio();
+  Future<dynamic> getMethod(String url) async {
 
     dio.options.headers['content-type'] = 'application/json';
 
@@ -16,7 +16,28 @@ class DioService {
         method: 'GET',
       ),
     ).then((response){
-      log(response.toString());
+      log('Get Method : ${response.toString()}');
+      return response;
+    });
+
+  }
+
+
+  Future<dynamic> postMethod(Map<String, dynamic> map, String url) async {
+
+    dio.options.headers['content-type'] = 'application/json';
+
+    // TODO : Read Token from storage
+
+    return await dio.post(
+      url,
+      data: map,
+      options: Options(
+        responseType: .json,
+        method: 'POST',
+      ),
+    ).then((response){
+      log('post method : ${response.toString()}');
       return response;
     });
 

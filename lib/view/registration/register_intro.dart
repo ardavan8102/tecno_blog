@@ -1,11 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
+import 'package:get/get.dart';
 import 'package:tecno_blog/components/buttons/elevated_button.dart';
 import 'package:tecno_blog/components/snackbars.dart';
 import 'package:tecno_blog/components/textfield_bottom_sheet.dart';
 import 'package:tecno_blog/consts/assets.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:tecno_blog/consts/strings.dart';
+import 'package:tecno_blog/controller/register_controller.dart';
 import 'package:tecno_blog/view/registration/registration_compelete.dart';
 import 'package:validators/validators.dart';
 
@@ -20,6 +22,8 @@ class _RegisterIntroPageState extends State<RegisterIntroPage> {
 
   bool isEmailOk = false;
   bool isEmailConfirmed = false;
+
+  RegisterController registerController = Get.put(RegisterController());
 
   @override
   Widget build(BuildContext context) {
@@ -136,6 +140,7 @@ class _RegisterIntroPageState extends State<RegisterIntroPage> {
   TextField emailTextFieldInput(TextTheme textTheme) {
 
     return TextField(
+      controller: registerController.emailTextEditingController,
       onChanged: (value) {
         setState(() {
           isEmailOk = isEmail(value);
@@ -156,6 +161,7 @@ class _RegisterIntroPageState extends State<RegisterIntroPage> {
   TextField validateTextFieldInput(TextTheme textTheme) {
 
     return TextField(
+      controller: registerController.activationCodeEditingController,
       onChanged: (value) {
         setState(() {
           isEmailConfirmed = isNumeric(value);
