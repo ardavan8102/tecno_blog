@@ -4,6 +4,7 @@ import 'package:tecno_blog/components/section/appbar.dart';
 import 'package:tecno_blog/components/section/bottom_navbar.dart';
 import 'package:tecno_blog/components/section/menu_drawer.dart';
 import 'package:tecno_blog/controller/small_controllers/page_handler_controller.dart';
+import 'package:tecno_blog/view/articles/articles_page.dart';
 import 'package:tecno_blog/view/main/home.dart';
 import 'package:tecno_blog/view/profile/profile_screen.dart';
 import 'package:tecno_blog/view/registration/register_intro.dart';
@@ -26,6 +27,8 @@ class PageHandler extends StatelessWidget {
     List<Widget> tecnoMainPages = [
 
       HomeScreen(),
+
+      ArticlesPage(),
 
       RegisterIntroPage(),
 

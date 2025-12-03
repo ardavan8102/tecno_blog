@@ -1,19 +1,22 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:tecno_blog/consts/assets.dart';
 import 'package:tecno_blog/consts/colors.dart';
+import 'package:tecno_blog/controller/register_controller.dart';
 
 class TecnoBottomNavigationBar extends StatelessWidget {
 
   final Size size;
   final Function(int) changeScreen;
 
-  const TecnoBottomNavigationBar({
+  TecnoBottomNavigationBar({
     super.key,
     required this.size,
     required this.changeScreen,
   });
 
+  final RegisterController registerController = Get.put(RegisterController(), permanent: false);
 
   @override
   Widget build(BuildContext context) {
@@ -53,7 +56,9 @@ class TecnoBottomNavigationBar extends StatelessWidget {
               ),
 
               IconButton(
-                onPressed: () => changeScreen(1),
+                onPressed: () {
+                  registerController.checkIfUserIsLogin();
+                },
                 icon: ImageIcon(
                   AssetImage(AppAssets.featherIcon),
                   color: Colors.white,
@@ -62,7 +67,7 @@ class TecnoBottomNavigationBar extends StatelessWidget {
               ),
 
               IconButton(
-                onPressed: () => changeScreen(2),
+                onPressed: () => changeScreen(3),
                 icon: Icon(
                   CupertinoIcons.person_fill,
                   color: Colors.white,

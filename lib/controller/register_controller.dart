@@ -3,11 +3,13 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
+import 'package:tecno_blog/components/snackbars.dart';
 import 'package:tecno_blog/consts/api_url.dart';
 import 'package:tecno_blog/consts/storage.dart';
 import 'package:tecno_blog/controller/small_controllers/page_handler_controller.dart';
 import 'package:tecno_blog/page_handler.dart';
 import 'package:tecno_blog/services/dio_service.dart';
+import 'package:tecno_blog/view/registration/register_intro.dart';
 
 class RegisterController extends GetxController {
 
@@ -61,9 +63,20 @@ class RegisterController extends GetxController {
       );
 
       Get.find<PageHandlerController>().selectedPageIndex.value = 0;
-      Get.to(PageHandler());
+      Get.offAll(PageHandler());
     } else {
+      AppSnackBars.failed('ثبت نام تایید نشد');
       log('Error on registeration');
+    }
+  }
+
+  void checkIfUserIsLogin(){
+
+    if (GetStorage().read(AppStorage.token) == null) {
+      Get.to(RegisterIntroPage());
+    } else {
+      Get.find<PageHandlerController>().selectedPageIndex.value = 1;
+      Get.to(PageHandler());
     }
 
   }

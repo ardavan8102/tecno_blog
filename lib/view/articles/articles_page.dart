@@ -223,7 +223,7 @@ class ArticlesPage extends StatelessWidget {
             ),
 
             // Button
-            ReturnHomeButton(),
+            GoToWriteArticlePage(),
           ],
         ),
       ),

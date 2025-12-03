@@ -87,8 +87,6 @@ class _RegisterIntroPageState extends State<RegisterIntroPage> {
               registerController.verify();
 
               AppSnackBars.success('ایمیل شما تایید شد');
-            } else {
-              AppSnackBars.failed('کد تایید درست نیست');
             }
           },
           height: size.height / 2.5,

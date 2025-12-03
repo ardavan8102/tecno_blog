@@ -6,8 +6,8 @@ import 'package:tecno_blog/consts/strings.dart';
 import 'package:tecno_blog/controller/small_controllers/page_handler_controller.dart';
 import 'package:tecno_blog/consts/app_styles.dart';
 
-class ReturnHomeButton extends StatelessWidget {
-  const ReturnHomeButton({super.key});
+class GoToWriteArticlePage extends StatelessWidget {
+  const GoToWriteArticlePage({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -24,7 +24,7 @@ class ReturnHomeButton extends StatelessWidget {
         spacing: 6,
         children: [
           Text(
-            AppStrings.bacToHomekButtonText,
+            AppStrings.goToArticleWritePageText,
             style: TextStyle(
               fontSize: 12,
               fontWeight: FontWeight.w400,
