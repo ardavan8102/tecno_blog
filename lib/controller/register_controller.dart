@@ -1,7 +1,12 @@
+import 'dart:developer';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:get_storage/get_storage.dart';
 import 'package:tecno_blog/consts/api_url.dart';
+import 'package:tecno_blog/consts/storage.dart';
+import 'package:tecno_blog/controller/small_controllers/page_handler_controller.dart';
+import 'package:tecno_blog/page_handler.dart';
 import 'package:tecno_blog/services/dio_service.dart';
 
 class RegisterController extends GetxController {
@@ -44,6 +49,21 @@ class RegisterController extends GetxController {
 
     if (kDebugMode) {
       print(response.data);
+    }
+
+    if (response.data['response'] == 'verified') {
+      var box = GetStorage();
+      box.write(
+        AppStorage.token, response.data['token']
+      );
+      box.write(
+        AppStorage.userId, response.data['user_id']
+      );
+
+      Get.find<PageHandlerController>().selectedPageIndex.value = 0;
+      Get.to(PageHandler());
+    } else {
+      log('Error on registeration');
     }
 
   }

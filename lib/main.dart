@@ -1,14 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:get/get.dart';
+import 'package:get_storage/get_storage.dart';
 import 'package:tecno_blog/consts/app_pages.dart';
 import 'package:tecno_blog/consts/app_theme.dart';
 
-void main() {
+void main() async {
 
   SystemChrome.setSystemUIOverlayStyle(
     SystemUiOverlayStyle.light
   );
+
+  await GetStorage.init();
 
   runApp(const MyApp());
 }

@@ -178,7 +178,7 @@ class _RegistrationCompeletePageState extends State<RegistrationCompeletePage> {
       shrinkWrap: true,
       gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
         crossAxisCount: 2,
-        childAspectRatio: 0.3,
+        childAspectRatio: 0.2,
         crossAxisSpacing: 12,
         mainAxisSpacing: 12,
       ),

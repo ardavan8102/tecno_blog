@@ -7,7 +7,6 @@ import 'package:tecno_blog/consts/assets.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:tecno_blog/consts/strings.dart';
 import 'package:tecno_blog/controller/register_controller.dart';
-import 'package:tecno_blog/view/registration/registration_compelete.dart';
 import 'package:validators/validators.dart';
 
 class RegisterIntroPage extends StatefulWidget {
@@ -81,16 +80,13 @@ class _RegisterIntroPageState extends State<RegisterIntroPage> {
           title: AppStrings.confirmYourEmail,
           buttonLabel: 'ادامه',
           buttonFunction: () {
-            if (isEmailConfirmed) {
-              registerController.verify();
 
+            if (isEmailConfirmed) {
               Navigator.of(context).pop(); // close prevoius bottom sheet
 
-              AppSnackBars.success('ایمیل شما تایید شد');
+              registerController.verify();
 
-              Navigator.of(context).pushReplacement(
-                MaterialPageRoute(builder: (context) => RegistrationCompeletePage())
-              );
+              AppSnackBars.success('ایمیل شما تایید شد');
             } else {
               AppSnackBars.failed('کد تایید درست نیست');
             }
