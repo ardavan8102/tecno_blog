@@ -7,5 +7,6 @@ class ApiUrl {
   // Api Queries
   static const String getHomeItems = '${baseURL}home/?command=index';
   static const String getNewArticles = '${baseURL}article/get.php?command=new&user_id=1';
+  static const String postMethodRegister = '${baseURL}register/action.php';
 
 }

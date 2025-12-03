@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:fluttertoast/fluttertoast.dart';
 import 'package:get/get.dart';
 import 'package:tecno_blog/components/buttons/elevated_button.dart';
 import 'package:tecno_blog/components/snackbars.dart';
@@ -83,8 +82,12 @@ class _RegisterIntroPageState extends State<RegisterIntroPage> {
           buttonLabel: 'ادامه',
           buttonFunction: () {
             if (isEmailConfirmed) {
+              registerController.verify();
+
               Navigator.of(context).pop(); // close prevoius bottom sheet
+
               AppSnackBars.success('ایمیل شما تایید شد');
+
               Navigator.of(context).pushReplacement(
                 MaterialPageRoute(builder: (context) => RegistrationCompeletePage())
               );
@@ -111,23 +114,16 @@ class _RegisterIntroPageState extends State<RegisterIntroPage> {
           buttonLabel: 'ادامه',
           buttonFunction: () {
             if (isEmailOk) {
+
+              registerController.register();
+
               Navigator.of(context).pop(); // close prevoius bottom sheet
-              Fluttertoast.showToast(
-                toastLength: .LENGTH_LONG,
-                msg: 'کد برای ایمیل ارسال شد',
-                gravity: .TOP,
-                backgroundColor: Colors.green,
-                textColor: Colors.white,
-              );
+
+              AppSnackBars.success('کد برای ایمیل ارسال شد');
+
               _bottomSheetValidate(context, size, textTheme);
             } else {
-              Fluttertoast.showToast(
-                toastLength: .LENGTH_LONG,
-                msg: 'ایمیل معتبر نمیباشد',
-                gravity: .TOP,
-                backgroundColor: Colors.red,
-                textColor: Colors.white,
-              );
+              AppSnackBars.failed('ایمیل معتبر نمیباشد');
             }
           },
           height: size.height / 2.5,

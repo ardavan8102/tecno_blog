@@ -1,5 +1,6 @@
 import 'dart:developer';
 import 'package:dio/dio.dart';
+import 'package:dio/dio.dart' as dio_service;
 
 class DioService {
 
@@ -31,7 +32,7 @@ class DioService {
 
     return await dio.post(
       url,
-      data: map,
+      data: dio_service.FormData.fromMap(map),
       options: Options(
         responseType: .json,
         method: 'POST',
