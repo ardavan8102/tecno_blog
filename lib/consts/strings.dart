@@ -13,9 +13,10 @@ class AppStrings {
   static const String hotArticles = 'داغ ترین نوشته ها';
   static const String hotPodcastes = 'داغ ترین پادکست ها';
 
-  //
+  // New Post
   static const String submitArticle = 'ارسال مقاله';
   static const String submitPodcast = 'ارسال پادکست';
+  static const String bottomSheetSharePostTitle = 'دانسته هات رو به اشتراک بذار';
 
   // Profile Screen
   static const String profileEdit = 'ویرایش عکس پروفایل';

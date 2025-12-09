@@ -2,7 +2,7 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:tecno_blog/components/buttons/return_home_button.dart';
+import 'package:tecno_blog/components/buttons/wirte_new_button.dart';
 import 'package:tecno_blog/components/loading_cube.dart';
 import 'package:tecno_blog/routes/app_pages.dart';
 import 'package:tecno_blog/styles/app_styles.dart';
