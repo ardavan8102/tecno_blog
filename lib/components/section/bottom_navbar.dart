@@ -16,7 +16,7 @@ class TecnoBottomNavigationBar extends StatelessWidget {
     required this.changeScreen,
   });
 
-  final RegisterController registerController = Get.put(RegisterController(), permanent: false);
+  final RegisterController registerController = Get.find<RegisterController>();
 
   @override
   Widget build(BuildContext context) {

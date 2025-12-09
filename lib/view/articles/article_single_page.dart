@@ -5,8 +5,8 @@ import 'package:get/get.dart';
 import 'package:tecno_blog/components/html_text_widget.dart';
 import 'package:tecno_blog/components/loading_cube.dart';
 import 'package:tecno_blog/components/section/single_article_appbar.dart';
-import 'package:tecno_blog/consts/app_pages.dart';
-import 'package:tecno_blog/consts/app_styles.dart';
+import 'package:tecno_blog/routes/app_pages.dart';
+import 'package:tecno_blog/styles/app_styles.dart';
 import 'package:tecno_blog/consts/assets.dart';
 import 'package:tecno_blog/consts/colors.dart';
 import 'package:tecno_blog/consts/strings.dart';
@@ -29,7 +29,7 @@ class _ArticleSinglePageState extends State<ArticleSinglePage> {
 
   // Controllers
   ListArticleController articleController = Get.find<ListArticleController>();
-  BookmarkedController bookmarkedController = Get.put(BookmarkedController());
+  BookmarkedController bookmarkedController = Get.find<BookmarkedController>();
   ArticleSinglePageController articleSinglePageController = Get.find<ArticleSinglePageController>();
 
 
@@ -231,7 +231,7 @@ class _ArticleSinglePageState extends State<ArticleSinglePage> {
 
         // TODO : Crash on opening tag's article
         Get.find<PageHandlerController>().selectedPageIndex = 1.obs;
-        Get.toNamed(AppRoutes.home);
+        Get.toNamed(AppRoutes.pageHandler);
       },
       child: Container(
         padding: EdgeInsets.only(right: 12, left: 12),

@@ -18,7 +18,7 @@ import 'package:tecno_blog/models/podcast_model.dart';
 class HomeScreen extends StatelessWidget {
   HomeScreen({super.key});
 
-  HomeController homeController = Get.put(HomeController());
+  HomeController homeController = Get.find<HomeController>();
 
   @override
   Widget build(BuildContext context) {

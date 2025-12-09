@@ -21,7 +21,7 @@ class _RegisterIntroPageState extends State<RegisterIntroPage> {
   bool isEmailOk = false;
   bool isEmailConfirmed = false;
 
-  RegisterController registerController = Get.put(RegisterController());
+  RegisterController registerController = Get.find<RegisterController>();
 
   @override
   Widget build(BuildContext context) {

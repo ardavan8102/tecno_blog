@@ -14,7 +14,7 @@ class PageHandler extends StatelessWidget {
 
   PageHandler({super.key});
 
-  final PageHandlerController controller = Get.put(PageHandlerController());
+  final PageHandlerController controller = Get.find<PageHandlerController>();
 
   final GlobalKey<ScaffoldState> _key = GlobalKey(); // Global Key State for Drawer menu
 

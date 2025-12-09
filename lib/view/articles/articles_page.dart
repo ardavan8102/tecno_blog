@@ -4,20 +4,18 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:tecno_blog/components/buttons/return_home_button.dart';
 import 'package:tecno_blog/components/loading_cube.dart';
-import 'package:tecno_blog/consts/app_styles.dart';
+import 'package:tecno_blog/routes/app_pages.dart';
+import 'package:tecno_blog/styles/app_styles.dart';
 import 'package:tecno_blog/consts/colors.dart';
 import 'package:tecno_blog/consts/strings.dart';
-import 'package:tecno_blog/controller/article_single_page_controller.dart';
 import 'package:tecno_blog/controller/list_article_controller.dart';
 import 'package:tecno_blog/models/article_model.dart';
-import 'package:tecno_blog/view/articles/article_single_page.dart';
 
 // ignore: must_be_immutable
 class ArticlesPage extends StatelessWidget {
   ArticlesPage({super.key});
 
-  ListArticleController articleListController = Get.put(ListArticleController());
-  ArticleSinglePageController articleSinglePageController = Get.put(ArticleSinglePageController());
+  ListArticleController articleListController = Get.find<ListArticleController>();
 
   @override
   Widget build(BuildContext context) {
@@ -137,8 +135,8 @@ class ArticlesPage extends StatelessWidget {
                   IconButton(
                     style: AppStyles.iconButtonGlassStyle,
                     onPressed: () {
-                      Get.to(
-                        () => ArticleSinglePage(),
+                      Get.toNamed(
+                        AppRoutes.articleSinglePlage,
                         arguments: int.parse(articleListController.articlesList[index].id!)
                       );
                     },

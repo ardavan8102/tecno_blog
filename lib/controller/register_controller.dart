@@ -8,8 +8,8 @@ import 'package:tecno_blog/consts/api_url.dart';
 import 'package:tecno_blog/consts/storage.dart';
 import 'package:tecno_blog/controller/small_controllers/page_handler_controller.dart';
 import 'package:tecno_blog/page_handler.dart';
+import 'package:tecno_blog/routes/app_pages.dart';
 import 'package:tecno_blog/services/dio_service.dart';
-import 'package:tecno_blog/view/registration/register_intro.dart';
 
 class RegisterController extends GetxController {
 
@@ -73,10 +73,10 @@ class RegisterController extends GetxController {
   void checkIfUserIsLogin(){
 
     if (GetStorage().read(AppStorage.token) == null) {
-      Get.to(RegisterIntroPage());
+      Get.toNamed(AppRoutes.registerIntroPage);
     } else {
       Get.find<PageHandlerController>().selectedPageIndex.value = 1;
-      Get.to(PageHandler());
+      Get.toNamed(AppRoutes.pageHandler);
     }
 
   }

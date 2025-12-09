@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
+import 'package:get/get.dart';
 import 'package:tecno_blog/consts/assets.dart';
 import 'package:tecno_blog/consts/colors.dart';
-import 'package:tecno_blog/page_handler.dart';
+import 'package:tecno_blog/routes/app_pages.dart';
 
 class SplashScreen extends StatefulWidget {
   const SplashScreen({super.key});
@@ -15,18 +16,13 @@ class _SplashScreenState extends State<SplashScreen> {
 
   @override
   void initState() {
-    Future.delayed(Duration(seconds: 4)).then((value) {
-
-      if (mounted) {
-        Navigator.of(context).pushReplacement(
-          MaterialPageRoute(
-            builder: (context) => PageHandler(),
-          )
-        );
-      }
-
-    });
+    
     super.initState();
+
+    Future.delayed(Duration(seconds: 4)).then((value) {
+      Get.offAndToNamed(AppRoutes.pageHandler);
+    });
+    
   }
 
   @override
