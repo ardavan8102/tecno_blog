@@ -19,6 +19,15 @@ class DioService {
     ).then((response){
       log('Get Method : ${response.toString()}');
       return response;
+    }).catchError((e){
+      if (e is DioException) {
+        
+        return e.response!;
+
+      } else {
+        return e;
+      }
+      
     });
 
   }
@@ -37,9 +46,15 @@ class DioService {
         responseType: .json,
         method: 'POST',
       ),
-    ).then((response){
-      log('post method : ${response.toString()}');
-      return response;
+    ).then((value){
+      log('post method : ${value.toString()}');
+      return value;
+    }).catchError((e) {
+      if (e is DioException) {
+        return e.response!;
+      } else {
+        return e;
+      }
     });
 
   }
