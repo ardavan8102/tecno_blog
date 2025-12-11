@@ -8,7 +8,7 @@ import 'package:tecno_blog/routes/app_pages.dart';
 import 'package:tecno_blog/styles/app_styles.dart';
 import 'package:tecno_blog/consts/colors.dart';
 import 'package:tecno_blog/consts/strings.dart';
-import 'package:tecno_blog/controller/list_article_controller.dart';
+import 'package:tecno_blog/controller/article/list_article_controller.dart';
 import 'package:tecno_blog/models/article_model.dart';
 
 // ignore: must_be_immutable

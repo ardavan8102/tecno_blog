@@ -44,6 +44,7 @@ flutter:
     - assets/icons/microphone.png
     - assets/icons/feather.png
     - assets/svg/tecnobot_smile.svg
+    - assets/svg/tecnobot_sad.svg
     - assets/svg/arrow.svg
 
   fonts:

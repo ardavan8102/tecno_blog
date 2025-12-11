@@ -1,6 +1,7 @@
 import 'package:get/get.dart';
 import 'package:tecno_blog/binding.dart';
 import 'package:tecno_blog/page_handler.dart';
+import 'package:tecno_blog/view/articles/article_list_management.dart';
 import 'package:tecno_blog/view/articles/article_single_page.dart';
 import 'package:tecno_blog/view/articles/articles_page.dart';
 import 'package:tecno_blog/view/main/about_us.dart';
@@ -14,6 +15,7 @@ class AppRoutes {
   static const articlesListPage = '/article-list';
   static const articleSinglePlage = '/article-single-page';
   static const registerIntroPage = '/register-intro';
+  static const articleListManagement = '/article-manage';
 }
 
 class AppPages {
@@ -48,6 +50,12 @@ class AppPages {
     GetPage(
       name: AppRoutes.registerIntroPage,
       page: () => RegisterIntroPage(), 
+    ),
+
+    GetPage(
+      name: AppRoutes.articleListManagement,
+      page: () => ArticleListManagementPage(),
+      binding: ArticleManagementBinding()
     ),
   ];
 }

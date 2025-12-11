@@ -5,6 +5,7 @@ import 'package:get/get.dart';
 import 'package:tecno_blog/consts/assets.dart';
 import 'package:tecno_blog/consts/colors.dart';
 import 'package:tecno_blog/consts/strings.dart';
+import 'package:tecno_blog/routes/app_pages.dart';
 import 'package:tecno_blog/styles/app_styles.dart';
 
 class GoToWriteArticlePage extends StatelessWidget {
@@ -94,9 +95,7 @@ class GoToWriteArticlePage extends StatelessWidget {
                   bgcolor: AppSolidColors.accent,
                   text: 'مدیریت مقاله',
                   textColor: Colors.white,
-                  function: () {
-                    
-                  },
+                  function: () => Get.toNamed(AppRoutes.articleListManagement),
                 ),
 
                 BottomSheetButton(
