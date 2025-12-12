@@ -12,6 +12,9 @@ class TextAndBackButtonAppBar extends StatelessWidget implements PreferredSizeWi
   @override
   Widget build(BuildContext context) {
     return AppBar(
+      backgroundColor: Colors.transparent,
+      elevation: 0,
+      scrolledUnderElevation: 0,
       automaticallyImplyLeading: false,
       title: Text(
         'مدیریت مقاله ها',
