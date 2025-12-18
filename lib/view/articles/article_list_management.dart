@@ -7,6 +7,7 @@ import 'package:tecno_blog/components/section/text_back_button_appbar.dart';
 import 'package:tecno_blog/consts/assets.dart';
 import 'package:tecno_blog/consts/strings.dart';
 import 'package:tecno_blog/controller/article/article_management_controller.dart';
+import 'package:tecno_blog/routes/app_pages.dart';
 
 class ArticleListManagementPage extends StatelessWidget {
   ArticleListManagementPage({super.key});
@@ -20,7 +21,7 @@ class ArticleListManagementPage extends StatelessWidget {
     var size = MediaQuery.of(context).size;
 
     return Scaffold(
-      appBar: TextAndBackButtonAppBar(textTheme: textTheme),
+      appBar: TextAndBackButtonAppBar(textTheme: textTheme, label: 'مدیریت مقاله ها'),
       body: SafeArea(
         child: Padding(
           padding: const EdgeInsets.all(24),
@@ -96,14 +97,14 @@ class ArticleListManagementPage extends StatelessWidget {
                         child: CustomElevatedButton(
                           label: 'یه مقاله جدید بنویس',
                           func: () {
-                        
+                            Get.toNamed(AppRoutes.articleSingleManagement);
                           }, 
                         ),
                       ),
                     ),
                   ],
                 )
-                : articleListEmptyState(textTheme), // TODO : Show loadingCube when loading and then if it was empty list, show the Empty state
+                : articleListEmptyState(textTheme),
           ),
         )
       ),
@@ -139,7 +140,7 @@ class ArticleListManagementPage extends StatelessWidget {
               CustomElevatedButton(
                 label: 'اولین مقاله رو بنویس',
                 func: () {
-              
+                  Get.toNamed(AppRoutes.articleSingleManagement);
                 }, 
               ),
             ],

@@ -95,7 +95,10 @@ class GoToWriteArticlePage extends StatelessWidget {
                   bgcolor: AppSolidColors.accent,
                   text: 'مدیریت مقاله',
                   textColor: Colors.white,
-                  function: () => Get.toNamed(AppRoutes.articleListManagement),
+                  function: () {
+                    Get.back();
+                    Get.toNamed(AppRoutes.articleListManagement);
+                  },
                 ),
 
                 BottomSheetButton(

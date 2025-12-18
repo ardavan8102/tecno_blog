@@ -14,6 +14,7 @@ class ArticleSingleBinding implements Bindings {
   void dependencies() {
     Get.lazyPut(() => ArticleSinglePageController());
     Get.lazyPut(() => BookmarkedController());
+    Get.lazyPut(() => ArticleManagementController());
   }
 
 }

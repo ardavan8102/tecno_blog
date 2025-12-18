@@ -4,10 +4,11 @@ import 'package:get/get.dart';
 class TextAndBackButtonAppBar extends StatelessWidget implements PreferredSizeWidget {
   const TextAndBackButtonAppBar({
     super.key,
-    required this.textTheme,
+    required this.textTheme, required this.label,
   });
 
   final TextTheme textTheme;
+  final String label;
 
   @override
   Widget build(BuildContext context) {
@@ -17,7 +18,7 @@ class TextAndBackButtonAppBar extends StatelessWidget implements PreferredSizeWi
       scrolledUnderElevation: 0,
       automaticallyImplyLeading: false,
       title: Text(
-        'مدیریت مقاله ها',
+        label,
         style: textTheme.labelLarge!.copyWith(
           color: Colors.black
         ),

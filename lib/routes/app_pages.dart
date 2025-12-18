@@ -4,6 +4,7 @@ import 'package:tecno_blog/page_handler.dart';
 import 'package:tecno_blog/view/articles/article_list_management.dart';
 import 'package:tecno_blog/view/articles/article_single_page.dart';
 import 'package:tecno_blog/view/articles/articles_page.dart';
+import 'package:tecno_blog/view/articles/write_new_article_page.dart';
 import 'package:tecno_blog/view/main/about_us.dart';
 import 'package:tecno_blog/view/registration/register_intro.dart';
 import 'package:tecno_blog/view/splash.dart';
@@ -16,6 +17,7 @@ class AppRoutes {
   static const articleSinglePlage = '/article-single-page';
   static const registerIntroPage = '/register-intro';
   static const articleListManagement = '/article-manage';
+  static const articleSingleManagement = '/single-management';
 }
 
 class AppPages {
@@ -56,6 +58,11 @@ class AppPages {
       name: AppRoutes.articleListManagement,
       page: () => ArticleListManagementPage(),
       binding: ArticleManagementBinding()
+    ),
+
+    GetPage(
+      name: AppRoutes.articleSingleManagement,
+      page: () => ArticleSingleManagementPage(),
     ),
   ];
 }
