@@ -4,7 +4,10 @@ import 'package:tecno_blog/consts/colors.dart';
 class AppTheme {
 
   static ThemeData mainTheme = ThemeData(
+
     fontFamily: 'Yekan',
+
+    // Buttons
     elevatedButtonTheme: ElevatedButtonThemeData(
       style: ButtonStyle(
         padding: WidgetStateProperty.all(EdgeInsets.fromLTRB(40, 14, 40, 14)),
@@ -38,6 +41,9 @@ class AppTheme {
         )
       ),
     ),
+
+    // Texts
+
     textTheme: TextTheme(
       // Headlines
       headlineLarge: TextStyle(

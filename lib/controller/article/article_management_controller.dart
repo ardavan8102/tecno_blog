@@ -13,7 +13,11 @@ class ArticleManagementController extends GetxController {
   
   RxBool isLoading = false.obs;
 
-  Rx<ArticleInfo> articleInfoModel = ArticleInfo().obs;
+  Rx<ArticleInfo> articleInfoModel = ArticleInfo(
+    title: 'مثلا بنویس -> یه مقاله باحال :)',
+    content: 'این قسمت میتونید یک مقاله جدید بنویسید',
+    image: '',
+  ).obs;
   
   RxList<TagsModel> tagList = RxList.empty();
 

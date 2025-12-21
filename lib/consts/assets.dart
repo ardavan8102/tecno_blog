@@ -14,4 +14,8 @@ class AppAssets {
   static const String tecnoBotSmile = 'assets/svg/tecnobot_smile.svg';
   static const String tecnoBotSad = 'assets/svg/tecnobot_sad.svg';
   static const String arrowDown = 'assets/svg/arrow.svg';
+
+
+  // Network assets
+  static const String networkPlaceholderAsset = 'https://wellcomeleap.org/wp-content/uploads/2020/07/placeholder.png';
 }

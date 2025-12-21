@@ -14,7 +14,19 @@ class ArticleInfo {
   String? createdAt;
   bool? isFavorite;
 
-  ArticleInfo();
+  ArticleInfo({
+    this.id,
+    this.title,
+    this.content,
+    this.image,
+    this.catId,
+    this.catName,
+    this.author,
+    this.view,
+    this.status,
+    this.createdAt,
+    this.isFavorite,
+  });
 
   ArticleInfo.fromJson(Map<String, dynamic> element){
     id = element['info']['id'];
