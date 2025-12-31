@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
-import 'package:tecno_blog/routes/app_pages.dart';
-import 'package:tecno_blog/styles/app_theme.dart';
+import 'package:tecno_blog/core/routes/app_pages.dart';
+import 'package:tecno_blog/core/styles/app_theme.dart';
 
 void main() async {
 

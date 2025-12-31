@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:share_plus/share_plus.dart';
 import 'package:tecno_blog/consts/strings.dart';
-import 'package:tecno_blog/controller/small_controllers/bookmarked_controller.dart';
+import 'package:tecno_blog/core/controller/small_controllers/bookmarked_controller.dart';
 
 class SingleArticleAppbar extends StatelessWidget {
 

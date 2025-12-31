@@ -5,8 +5,8 @@ import 'package:get/get.dart';
 import 'package:tecno_blog/consts/assets.dart';
 import 'package:tecno_blog/consts/colors.dart';
 import 'package:tecno_blog/consts/strings.dart';
-import 'package:tecno_blog/routes/app_pages.dart';
-import 'package:tecno_blog/styles/app_styles.dart';
+import 'package:tecno_blog/core/routes/app_pages.dart';
+import 'package:tecno_blog/core/styles/app_styles.dart';
 
 class GoToWriteArticlePage extends StatelessWidget {
   const GoToWriteArticlePage({super.key});

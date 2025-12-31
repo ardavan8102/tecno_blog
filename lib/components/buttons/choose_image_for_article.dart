@@ -1,19 +1,20 @@
 import 'package:flutter/material.dart';
 import 'package:tecno_blog/consts/colors.dart';
+import 'package:tecno_blog/services/pick_file.dart';
 
 class ChooseImageForArticleButton extends StatelessWidget {
   const ChooseImageForArticleButton({
     super.key,
-    required this.textTheme,
   });
-
-  final TextTheme textTheme;
 
   @override
   Widget build(BuildContext context) {
+    
+    var textTheme = Theme.of(context).textTheme;
+    
     return GestureDetector(
       onTap: () {
-        
+        pickImageFile();
       },
       child: Container(
         height: 50,

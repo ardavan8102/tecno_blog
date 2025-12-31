@@ -1,8 +1,8 @@
 import 'package:get/get.dart';
 import 'package:tecno_blog/consts/api_url.dart';
-import 'package:tecno_blog/models/article_info.dart';
-import 'package:tecno_blog/models/article_model.dart';
-import 'package:tecno_blog/models/tags_model.dart';
+import 'package:tecno_blog/core/models/article_info.dart';
+import 'package:tecno_blog/core/models/article_model.dart';
+import 'package:tecno_blog/core/models/tags_model.dart';
 import 'package:tecno_blog/services/dio_service.dart';
 
 class ArticleSinglePageController extends GetxController {

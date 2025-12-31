@@ -1,9 +1,9 @@
 import 'package:get/get.dart';
 import 'package:tecno_blog/consts/api_url.dart';
-import 'package:tecno_blog/models/article_model.dart';
-import 'package:tecno_blog/models/podcast_model.dart';
-import 'package:tecno_blog/models/poster_model.dart';
-import 'package:tecno_blog/models/tags_model.dart';
+import 'package:tecno_blog/core/models/article_model.dart';
+import 'package:tecno_blog/core/models/podcast_model.dart';
+import 'package:tecno_blog/core/models/poster_model.dart';
+import 'package:tecno_blog/core/models/tags_model.dart';
 import 'package:tecno_blog/services/dio_service.dart';
 
 class HomeController extends GetxController {

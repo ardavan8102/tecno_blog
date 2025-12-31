@@ -7,9 +7,9 @@ import 'package:tecno_blog/components/view_builder_items/category_item.dart';
 import 'package:tecno_blog/components/view_builder_items/sub_category_item.dart';
 import 'package:tecno_blog/consts/assets.dart';
 import 'package:tecno_blog/consts/strings.dart';
-import 'package:tecno_blog/controller/home_controller.dart';
-import 'package:tecno_blog/models/data_models.dart';
-import 'package:tecno_blog/models/fake_data.dart';
+import 'package:tecno_blog/core/controller/home_controller.dart';
+import 'package:tecno_blog/core/models/data_models.dart';
+import 'package:tecno_blog/core/models/fake_data.dart';
 
 class RegistrationCompeletePage extends StatefulWidget {
   const RegistrationCompeletePage({super.key});

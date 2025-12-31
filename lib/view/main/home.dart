@@ -9,10 +9,10 @@ import 'package:tecno_blog/components/section_title.dart';
 import 'package:tecno_blog/consts/assets.dart';
 import 'package:tecno_blog/consts/colors.dart';
 import 'package:tecno_blog/consts/strings.dart';
-import 'package:tecno_blog/controller/home_controller.dart';
-import 'package:tecno_blog/models/fake_data.dart';
-import 'package:tecno_blog/models/article_model.dart';
-import 'package:tecno_blog/models/podcast_model.dart';
+import 'package:tecno_blog/core/controller/home_controller.dart';
+import 'package:tecno_blog/core/models/fake_data.dart';
+import 'package:tecno_blog/core/models/article_model.dart';
+import 'package:tecno_blog/core/models/podcast_model.dart';
 
 // ignore: must_be_immutable
 class HomeScreen extends StatelessWidget {

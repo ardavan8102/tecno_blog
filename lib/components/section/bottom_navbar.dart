@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:tecno_blog/consts/assets.dart';
 import 'package:tecno_blog/consts/colors.dart';
-import 'package:tecno_blog/controller/register_controller.dart';
+import 'package:tecno_blog/core/controller/register_controller.dart';
 
 class TecnoBottomNavigationBar extends StatelessWidget {
 

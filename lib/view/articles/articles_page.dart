@@ -4,12 +4,12 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:tecno_blog/components/buttons/wirte_new_button.dart';
 import 'package:tecno_blog/components/loading_cube.dart';
-import 'package:tecno_blog/routes/app_pages.dart';
-import 'package:tecno_blog/styles/app_styles.dart';
+import 'package:tecno_blog/core/controller/article/list_article_controller.dart';
+import 'package:tecno_blog/core/routes/app_pages.dart';
+import 'package:tecno_blog/core/styles/app_styles.dart';
 import 'package:tecno_blog/consts/colors.dart';
 import 'package:tecno_blog/consts/strings.dart';
-import 'package:tecno_blog/controller/article/list_article_controller.dart';
-import 'package:tecno_blog/models/article_model.dart';
+import 'package:tecno_blog/core/models/article_model.dart';
 
 // ignore: must_be_immutable
 class ArticlesPage extends StatelessWidget {

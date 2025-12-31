@@ -2,11 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:share_plus/share_plus.dart';
 import 'package:tecno_blog/components/url_launcher.dart';
-import 'package:tecno_blog/routes/app_pages.dart';
+import 'package:tecno_blog/core/routes/app_pages.dart';
 import 'package:tecno_blog/consts/assets.dart';
 import 'package:tecno_blog/consts/colors.dart';
 import 'package:tecno_blog/consts/strings.dart';
-import 'package:tecno_blog/controller/small_controllers/page_handler_controller.dart';
+import 'package:tecno_blog/core/controller/small_controllers/page_handler_controller.dart';
 
 class TecnoSideMenuDrawer extends StatelessWidget {
   const TecnoSideMenuDrawer({super.key});

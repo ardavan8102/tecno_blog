@@ -1,4 +1,4 @@
-import 'package:tecno_blog/models/data_models.dart';
+import 'package:tecno_blog/core/models/data_models.dart';
 
 Map homePageBannerMap = {
   "imageAsset": "assets/images/banners/programming.png",

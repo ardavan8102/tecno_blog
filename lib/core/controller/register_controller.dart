@@ -6,9 +6,9 @@ import 'package:get_storage/get_storage.dart';
 import 'package:tecno_blog/components/snackbars.dart';
 import 'package:tecno_blog/consts/api_url.dart';
 import 'package:tecno_blog/consts/storage.dart';
-import 'package:tecno_blog/controller/small_controllers/page_handler_controller.dart';
+import 'package:tecno_blog/core/controller/small_controllers/page_handler_controller.dart';
 import 'package:tecno_blog/page_handler.dart';
-import 'package:tecno_blog/routes/app_pages.dart';
+import 'package:tecno_blog/core/routes/app_pages.dart';
 import 'package:tecno_blog/services/dio_service.dart';
 
 class RegisterController extends GetxController {

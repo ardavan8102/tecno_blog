@@ -5,18 +5,18 @@ import 'package:get/get.dart';
 import 'package:tecno_blog/components/html_text_widget.dart';
 import 'package:tecno_blog/components/loading_cube.dart';
 import 'package:tecno_blog/components/section/single_article_appbar.dart';
-import 'package:tecno_blog/routes/app_pages.dart';
-import 'package:tecno_blog/styles/app_styles.dart';
+import 'package:tecno_blog/core/controller/article/article_single_page_controller.dart';
+import 'package:tecno_blog/core/controller/article/list_article_controller.dart';
+import 'package:tecno_blog/core/controller/small_controllers/bookmarked_controller.dart';
+import 'package:tecno_blog/core/controller/small_controllers/page_handler_controller.dart';
+import 'package:tecno_blog/core/routes/app_pages.dart';
+import 'package:tecno_blog/core/styles/app_styles.dart';
 import 'package:tecno_blog/consts/assets.dart';
 import 'package:tecno_blog/consts/colors.dart';
 import 'package:tecno_blog/consts/strings.dart';
-import 'package:tecno_blog/controller/article/article_single_page_controller.dart';
-import 'package:tecno_blog/controller/article/list_article_controller.dart';
-import 'package:tecno_blog/controller/small_controllers/bookmarked_controller.dart';
-import 'package:tecno_blog/controller/small_controllers/page_handler_controller.dart';
-import 'package:tecno_blog/models/article_info.dart';
-import 'package:tecno_blog/models/article_model.dart';
-import 'package:tecno_blog/models/tags_model.dart';
+import 'package:tecno_blog/core/models/article_info.dart';
+import 'package:tecno_blog/core/models/article_model.dart';
+import 'package:tecno_blog/core/models/tags_model.dart';
 
 class ArticleSinglePage extends StatefulWidget {
   const ArticleSinglePage({super.key});
