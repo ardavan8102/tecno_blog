@@ -4,14 +4,16 @@ import 'package:get/get.dart';
 class TextAndBackButtonAppBar extends StatelessWidget implements PreferredSizeWidget {
   const TextAndBackButtonAppBar({
     super.key,
-    required this.textTheme, required this.label,
+    required this.label,
   });
 
-  final TextTheme textTheme;
   final String label;
 
   @override
   Widget build(BuildContext context) {
+
+    var textTheme = Theme.of(context).textTheme;
+
     return AppBar(
       backgroundColor: Colors.transparent,
       elevation: 0,

@@ -1,3 +1,4 @@
+import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
 import 'package:tecno_blog/consts/api_url.dart';
@@ -12,6 +13,8 @@ class ArticleManagementController extends GetxController {
   RxList<ArticleModel> articleList = RxList.empty();
   
   RxBool isLoading = false.obs;
+
+  TextEditingController titleTextEditingController = TextEditingController();
 
   Rx<ArticleInfo> articleInfoModel = ArticleInfo(
     title: 'مثلا بنویس -> یه مقاله باحال :)',
@@ -48,5 +51,16 @@ class ArticleManagementController extends GetxController {
 
     }
   }
+
+
+  void updateTitle() {
+
+    articleInfoModel.update((val) {
+      val!.title = titleTextEditingController.text;
+    });
+
+  }
+
+
 
 }

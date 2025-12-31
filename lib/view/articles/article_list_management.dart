@@ -21,7 +21,7 @@ class ArticleListManagementPage extends StatelessWidget {
     var size = MediaQuery.of(context).size;
 
     return Scaffold(
-      appBar: TextAndBackButtonAppBar(textTheme: textTheme, label: 'مدیریت مقاله ها'),
+      appBar: TextAndBackButtonAppBar(label: 'مدیریت مقاله ها'),
       body: SafeArea(
         child: Padding(
           padding: const EdgeInsets.all(24),

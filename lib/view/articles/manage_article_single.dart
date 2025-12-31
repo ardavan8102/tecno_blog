@@ -3,12 +3,14 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:tecno_blog/components/buttons/choose_image_for_article.dart';
+import 'package:tecno_blog/components/dialogs/change_article_title_dialog.dart';
 import 'package:tecno_blog/components/loading_cube.dart';
 import 'package:tecno_blog/components/section/text_back_button_appbar.dart';
 import 'package:tecno_blog/components/section_title.dart';
 import 'package:tecno_blog/consts/assets.dart';
 import 'package:tecno_blog/core/controller/article/article_management_controller.dart';
 import 'package:tecno_blog/core/controller/file_pick_controller.dart';
+import 'package:tecno_blog/view/articles/html_content_editor.dart';
 
 class ArticleSingleManagementPage extends StatelessWidget {
   ArticleSingleManagementPage({super.key});
@@ -27,7 +29,7 @@ class ArticleSingleManagementPage extends StatelessWidget {
     final article = articleManagementController.articleInfoModel.value;
 
     return Scaffold(
-      appBar: TextAndBackButtonAppBar(textTheme: textTheme, label: 'مقاله جدید'),
+      appBar: TextAndBackButtonAppBar(label: 'مقاله جدید'),
       body: SafeArea(
         child: SingleChildScrollView(
           physics: const BouncingScrollPhysics(),
@@ -72,20 +74,21 @@ class ArticleSingleManagementPage extends StatelessWidget {
                 Padding(
                   padding: const EdgeInsets.all(24),
                   child: Column(
+                    crossAxisAlignment: .start,
                     children: [
                       CustomSectionTitle(text: 'عنوان مقاله', assetName: AppAssets.penIcon),
             
                       const SizedBox(height: 15),
             
-                      TextField(
-                        decoration: InputDecoration(
-                          labelText: article.title,
-                          labelStyle: textTheme.labelSmall!.copyWith(
-                            color: Colors.grey
-                          ),
-                          hintText: 'میتونی عنوان خودتو بنویسی',
-                          hintStyle: textTheme.labelMedium!.copyWith(
-                            color: Colors.grey.shade700
+                      GestureDetector(
+                        onTap: () {
+                          //get title
+                          getTitleDialog(articleManagementController);
+                        },
+                        child: Text(
+                          article.title ?? 'بدون عنوان',
+                          style: textTheme.labelLarge!.copyWith(
+                            color: Colors.black
                           ),
                         ),
                       ),
@@ -102,15 +105,14 @@ class ArticleSingleManagementPage extends StatelessWidget {
             
                       const SizedBox(height: 15),
             
-                      TextField(
-                        decoration: InputDecoration(
-                          labelText: article.content,
-                          labelStyle: textTheme.labelSmall!.copyWith(
-                            color: Colors.grey
-                          ),
-                          hintText: 'میتونی محتوای خودتو بنویسی',
-                          hintStyle: textTheme.labelMedium!.copyWith(
-                            color: Colors.grey.shade700
+                      GestureDetector(
+                        onTap: () {
+                          Get.to(() => HtmlContentEditorPage());
+                        },
+                        child: Text(
+                          article.content ?? 'بدون توضیحات',
+                          style: textTheme.labelMedium!.copyWith(
+                            color: Colors.black.withValues(alpha: .7)
                           ),
                         ),
                       ),
