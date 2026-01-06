@@ -3,7 +3,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:tecno_blog/components/buttons/wirte_new_button.dart';
-import 'package:tecno_blog/components/loading_cube.dart';
+import 'package:tecno_blog/components/small_widgets/loading_cube.dart';
 import 'package:tecno_blog/core/controller/article/list_article_controller.dart';
 import 'package:tecno_blog/core/routes/app_pages.dart';
 import 'package:tecno_blog/core/styles/app_styles.dart';

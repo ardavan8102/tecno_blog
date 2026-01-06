@@ -1,8 +1,12 @@
+import 'dart:developer';
+
+import 'package:dio/dio.dart' as dio;
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
 import 'package:tecno_blog/consts/api_url.dart';
 import 'package:tecno_blog/consts/storage.dart';
+import 'package:tecno_blog/core/controller/file_pick_controller.dart';
 import 'package:tecno_blog/core/models/article_info.dart';
 import 'package:tecno_blog/core/models/article_model.dart';
 import 'package:tecno_blog/core/models/tags_model.dart';
@@ -58,6 +62,48 @@ class ArticleManagementController extends GetxController {
     articleInfoModel.update((val) {
       val!.title = titleTextEditingController.text;
     });
+
+  }
+
+
+  dynamic storeArticle() async {
+
+    FilePickController fileController = Get.find<FilePickController>();
+
+    if(fileController.file.value.path == null || fileController.file.value.path!.isEmpty ) {
+      log('no image file');
+      return;
+    }
+
+    isLoading.value = true;
+
+    var article = articleInfoModel.value;
+
+    Map<String, dynamic> map = {
+      'title' : article.title,
+      'content' : article.content,
+      'cat_id' : article.catId,
+      'tag_list' : [article.catId],
+      'user_id' : GetStorage().read(AppStorage.userId),
+      'image' : await dio.MultipartFile.fromFile(
+        fileController.file.value.path ?? ""
+      ),
+      'command' : 'store',
+    };
+
+    var response = await DioService().postMethod(
+      ApiUrl.articlePost,
+      map,
+    );
+
+    if (response == null) {
+      log('❌ response is null');
+    } else {
+      log('✅ statusCode: ${response.statusCode}');
+      log('✅ data: ${response.data}');
+    }
+
+    isLoading.value = false;
 
   }
 

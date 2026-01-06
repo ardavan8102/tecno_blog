@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_widget_from_html/flutter_widget_from_html.dart';
-import 'package:tecno_blog/components/loading_cube.dart';
+import 'package:tecno_blog/components/small_widgets/loading_cube.dart';
 
 class HtmlTextWidget extends StatelessWidget {
   final String text;

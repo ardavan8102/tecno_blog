@@ -33,30 +33,25 @@ class DioService {
   }
 
 
-  Future<dynamic> postMethod(Map<String, dynamic> map, String url) async {
+  Future<Response?> postMethod(String url, Map<String, dynamic> map) async {
+    try {
+      final response = await dio.post(
+        url,
+        data: dio_service.FormData.fromMap(map),
+        options: Options(
+          responseType: ResponseType.json,
+          method: 'POST',
+        ),
+      );
 
-    dio.options.headers['content-type'] = 'application/json';
-
-    // TODO : Read Token from storage
-
-    return await dio.post(
-      url,
-      data: dio_service.FormData.fromMap(map),
-      options: Options(
-        responseType: .json,
-        method: 'POST',
-      ),
-    ).then((value){
-      log('post method : ${value.toString()}');
-      return value;
-    }).catchError((e) {
-      if (e is DioException) {
-        return e.response!;
-      } else {
-        return e;
-      }
-    });
-
+      log('post method: ${response.toString()}');
+      return response;
+    } on DioException catch (e) {
+      log('🔥 DioException.type: ${e.type}');
+      log('🔥 DioException.message: ${e.message}');
+      log('🔥 DioException.error: ${e.error}');
+      log('🔥 DioException.response: ${e.response}');
+    }
   }
 
 }

@@ -3,13 +3,17 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:tecno_blog/components/buttons/choose_image_for_article.dart';
+import 'package:tecno_blog/components/buttons/elevated_button.dart';
 import 'package:tecno_blog/components/dialogs/change_article_title_dialog.dart';
-import 'package:tecno_blog/components/loading_cube.dart';
+import 'package:tecno_blog/components/grid_view/choose_category_grid_view.dart';
+import 'package:tecno_blog/components/small_widgets/loading_cube.dart';
 import 'package:tecno_blog/components/section/text_back_button_appbar.dart';
 import 'package:tecno_blog/components/section_title.dart';
 import 'package:tecno_blog/consts/assets.dart';
+import 'package:tecno_blog/consts/colors.dart';
 import 'package:tecno_blog/core/controller/article/article_management_controller.dart';
 import 'package:tecno_blog/core/controller/file_pick_controller.dart';
+import 'package:tecno_blog/core/controller/home_controller.dart';
 import 'package:tecno_blog/view/articles/html_content_editor.dart';
 
 class ArticleSingleManagementPage extends StatelessWidget {
@@ -124,12 +128,31 @@ class ArticleSingleManagementPage extends StatelessWidget {
                 Padding(
                   padding: const EdgeInsets.all(24),
                   child: Column(
+                    crossAxisAlignment: .start,
                     children: [
-                      CustomSectionTitle(text: 'دسته بندی مقاله', assetName: AppAssets.penIcon),
+                      GestureDetector(
+                        onTap: () {
+                          chooseCategoriesBottomSheet(textTheme);
+                        },
+                        child: CustomSectionTitle(text: 'انتخاب دسته بندی', assetName: AppAssets.penIcon)
+                      ),
             
                       const SizedBox(height: 15),
+                      
+                      Text(
+                        articleManagementController.articleInfoModel.value.catName ?? 'بدون دسته بندی',
+                      ),
                     ],
                   ),
+                ),
+
+                CustomElevatedButton(
+                  label: articleManagementController.isLoading.value
+                    ? 'در حال ارسال'
+                    : 'ارسال مطلب',
+                  func: () async {
+                    await articleManagementController.storeArticle();
+                  }
                 ),
               ],
             ),
@@ -137,5 +160,41 @@ class ArticleSingleManagementPage extends StatelessWidget {
         ),
       ),
     );
+  }
+
+  void chooseCategoriesBottomSheet(TextTheme textTheme) {
+
+    var homeScreenController = Get.find<HomeController>();
+
+    Get.bottomSheet(
+      Container(
+        height: Get.height * .4,
+        padding: const EdgeInsets.all(24),
+        decoration: BoxDecoration(
+          borderRadius: BorderRadius.vertical(top: Radius.circular(30)),
+          color: Colors.white
+        ),
+        child: Column(
+          children: [
+            Text(
+              'انتخاب کنید',
+              style: textTheme.labelLarge!.copyWith(
+                color: AppSolidColors.titleText
+              ),
+            ),
+
+            const SizedBox(height: 12),
+
+            Expanded(
+              child: ChooseCategoryForArticleGridView(
+                homeScreenController: homeScreenController,
+                articleManagementController: articleManagementController
+              ),
+            )
+          ],
+        ),
+      ),
+    );
+
   }
 }

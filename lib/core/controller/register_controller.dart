@@ -27,10 +27,10 @@ class RegisterController extends GetxController {
       'command' : 'register',
     };
 
-    var response = await DioService().postMethod(map, ApiUrl.postMethodRegister);
+    var response = await DioService().postMethod(ApiUrl.postMethodRegister, map);
 
     email = emailTextEditingController.text;
-    userId = response.data['user_id'];
+    userId = response!.data['user_id'];
 
     if (kDebugMode) {
       print(response.data);
@@ -47,13 +47,13 @@ class RegisterController extends GetxController {
       'command' : 'verify',
     };
 
-    var response = await DioService().postMethod(map, ApiUrl.postMethodRegister);
+    var response = await DioService().postMethod(ApiUrl.postMethodRegister, map);
 
     if (kDebugMode) {
-      print(response.data);
+      print(response!.data);
     }
 
-    if (response.data['response'] == 'verified') {
+    if (response!.data['response'] == 'verified') {
       var box = GetStorage();
       box.write(
         AppStorage.token, response.data['token']

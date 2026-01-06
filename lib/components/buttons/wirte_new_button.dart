@@ -47,7 +47,7 @@ class GoToWriteArticlePage extends StatelessWidget {
     Get.bottomSheet(
       Container(
         padding: EdgeInsets.all(20),
-        height: Get.height / 2.5,
+        height: Get.height / 3,
         decoration: BoxDecoration(
           color: Colors.white,
           borderRadius: BorderRadius.only(topLeft: Radius.circular(30), topRight: Radius.circular(30)),
@@ -86,7 +86,7 @@ class GoToWriteArticlePage extends StatelessWidget {
               ),
             ),
 
-            const SizedBox(height: 34),
+            const Spacer(),
 
             Row(
               spacing: 16,

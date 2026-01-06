@@ -34,8 +34,10 @@ class HtmlContentEditorPage extends StatelessWidget {
                   initialText: articleManagementController.articleInfoModel.value.content,
                 ),
                 callbacks: Callbacks(
-                  onChangeContent: (value) {
-                    articleManagementController.articleInfoModel.value.content = value;
+                  onChangeContent: (onChangedValue) {
+                    articleManagementController.articleInfoModel.update((value) {
+                      value!.content = onChangedValue;
+                    }) ;
                   },
                 ),
               ),

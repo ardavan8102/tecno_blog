@@ -7,9 +7,13 @@ import 'package:tecno_blog/core/styles/app_theme.dart';
 
 void main() async {
 
+  WidgetsFlutterBinding.ensureInitialized();
+
   SystemChrome.setSystemUIOverlayStyle(
     SystemUiOverlayStyle.light
   );
+
+  SystemChrome.setEnabledSystemUIMode(SystemUiMode.immersiveSticky);
 
   await GetStorage.init();
 

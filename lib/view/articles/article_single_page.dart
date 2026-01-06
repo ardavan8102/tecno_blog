@@ -3,20 +3,18 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:tecno_blog/components/html_text_widget.dart';
-import 'package:tecno_blog/components/loading_cube.dart';
+import 'package:tecno_blog/components/list_view/tags_list_view.dart';
+import 'package:tecno_blog/components/small_widgets/loading_cube.dart';
 import 'package:tecno_blog/components/section/single_article_appbar.dart';
 import 'package:tecno_blog/core/controller/article/article_single_page_controller.dart';
 import 'package:tecno_blog/core/controller/article/list_article_controller.dart';
 import 'package:tecno_blog/core/controller/small_controllers/bookmarked_controller.dart';
-import 'package:tecno_blog/core/controller/small_controllers/page_handler_controller.dart';
-import 'package:tecno_blog/core/routes/app_pages.dart';
 import 'package:tecno_blog/core/styles/app_styles.dart';
 import 'package:tecno_blog/consts/assets.dart';
 import 'package:tecno_blog/consts/colors.dart';
 import 'package:tecno_blog/consts/strings.dart';
 import 'package:tecno_blog/core/models/article_info.dart';
 import 'package:tecno_blog/core/models/article_model.dart';
-import 'package:tecno_blog/core/models/tags_model.dart';
 
 class ArticleSinglePage extends StatefulWidget {
   const ArticleSinglePage({super.key});
@@ -135,7 +133,7 @@ class _ArticleSinglePageState extends State<ArticleSinglePage> {
                       const SizedBox(height: 40),
         
                       // Category
-                      articleTagsListView(articleTagsList, textTheme),
+                      ArticleTagsListView(articleController: articleController, articleItem: articleTagsList),
         
                       const SizedBox(height: 40),
 
@@ -192,72 +190,6 @@ class _ArticleSinglePageState extends State<ArticleSinglePage> {
             ),
           ],
         ) : const Center(child: LoadingCube()),
-      ),
-    );
-  }
-
-  // Tags List View
-  Widget articleTagsListView(RxList<TagsModel> articleItem, TextTheme textTheme) {
-    return SizedBox(
-      height: 70,
-      width: double.infinity,
-      child: Obx(
-        () => ListView.builder(
-          scrollDirection: .horizontal,
-          itemCount: articleItem.length,
-          itemBuilder: (context, index) {
-            return Padding(
-              padding: articleItem.length -1 == index 
-              ? const EdgeInsets.only(right: 8)
-              : index == 0 
-              ? const EdgeInsets.only(left: 8)
-              : const EdgeInsets.only(right: 8, left: 8),
-              child: tagListViewItem(articleItem, index, textTheme),
-            );
-          }
-        ),
-      ),
-    );
-  }
-
-  // Tag List View Item
-  Widget tagListViewItem(RxList<TagsModel> articleTag, int index, TextTheme textTheme) {
-    return GestureDetector(
-      onTap: () async {
-        var tagId = articleTag[index].id ?? "";
-
-        articleController.articlesList.clear(); 
-        await articleController.getArticleListByTagId(tagId);
-
-        // TODO : Crash on opening tag's article
-        Get.find<PageHandlerController>().selectedPageIndex = 1.obs;
-        Get.toNamed(AppRoutes.pageHandler);
-      },
-      child: Container(
-        padding: EdgeInsets.only(right: 12, left: 12),
-        height: 70,
-        decoration: BoxDecoration(
-          color: AppSolidColors.accent.withValues(alpha: 0.1),
-          borderRadius: .circular(10)
-        ),
-        child: Row(
-          spacing: 10,
-          children: [
-            Image.asset(
-              AppAssets.hashtagIcon,
-              width: 24,
-              height: 24,
-              color: AppSolidColors.accent,
-            ),
-            Text(
-              articleTag[index].title ?? "بدون دسته بندی",
-              style: textTheme.bodySmall!.copyWith(
-                color: AppSolidColors.accent,
-                fontWeight: FontWeight.w500,
-              ),
-            )
-          ],
-        ),
       ),
     );
   }

@@ -4,6 +4,7 @@ import 'package:tecno_blog/consts/colors.dart';
 class CustomElevatedButton extends StatelessWidget {
   final String label;
   final Function() func;
+  
   const CustomElevatedButton({
     super.key,
     required this.label,

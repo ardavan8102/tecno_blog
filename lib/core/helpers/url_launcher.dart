@@ -1,5 +1,4 @@
 import 'dart:developer';
-
 import 'package:tecno_blog/components/snackbars.dart';
 import 'package:url_launcher/url_launcher.dart';
 

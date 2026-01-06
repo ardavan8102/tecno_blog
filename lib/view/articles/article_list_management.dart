@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
 import 'package:tecno_blog/components/buttons/elevated_button.dart';
-import 'package:tecno_blog/components/loading_cube.dart';
+import 'package:tecno_blog/components/small_widgets/loading_cube.dart';
 import 'package:tecno_blog/components/section/text_back_button_appbar.dart';
 import 'package:tecno_blog/consts/assets.dart';
 import 'package:tecno_blog/consts/strings.dart';
